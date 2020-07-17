@@ -52,7 +52,7 @@ const IndexPage = ({ data }) => (
       <div
         className="text-container"
         css={css`
-          margin-right: 1em;
+          margin-right: 3em;
         `}
       >
         <H3Hero className="hero">
