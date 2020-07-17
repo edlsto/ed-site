@@ -16,10 +16,6 @@ const Layout = ({ children }) => {
             margin: 0;
           }
 
-          * + * {
-            margin-top: 1rem;
-          }
-
           html,
           body {
             margin: 0;
@@ -33,6 +29,10 @@ const Layout = ({ children }) => {
             /* remove margin for the main div that Gatsy mounts into */
             > div {
               margin-top: 0;
+            }
+
+            a {
+              color: #222;
             }
 
             h1,
@@ -55,6 +55,11 @@ const Layout = ({ children }) => {
             li {
               margin-top: 0.25rem;
             }
+
+            code {
+              background-color: lightgray;
+              color: red;
+            }
           }
         `}
       />
@@ -67,7 +72,7 @@ const Layout = ({ children }) => {
         css={css`
           margin: 2rem auto 4rem;
           max-width: 90vw;
-          width: 550px;
+          width: 750px;
         `}
       >
         {children}
