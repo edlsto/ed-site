@@ -60,6 +60,10 @@ const Layout = ({ children }) => {
               background-color: lightgray;
               color: red;
             }
+
+            p {
+              margin-bottom: 1rem;
+            }
           }
         `}
       />
