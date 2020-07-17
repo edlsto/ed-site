@@ -17,7 +17,7 @@ const NavLink = styled(Link)`
   }
 
   &:last-of-type {
-    margin-right: 0;
+    margin-right: 2rem;
   }
 `
 
