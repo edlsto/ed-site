@@ -43,7 +43,6 @@ const Layout = ({ children }) => {
             h6 {
               color: #222;
               line-height: 1.1;
-
               + * {
                 margin-top: 0.5rem;
               }
@@ -63,6 +62,10 @@ const Layout = ({ children }) => {
 
             p {
               margin-bottom: 1rem;
+            }
+
+            h1 {
+              margin-bottom: 2rem;
             }
           }
         `}
