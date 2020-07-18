@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import ReadMore from "../components/read-more"
 import Image from "gatsby-image"
+import Tags from "../components/tags"
 
 const Project = ({ project }) => {
   console.log(project)
@@ -18,22 +19,32 @@ const Project = ({ project }) => {
         }
       `}
     >
-      <Link
+      <Image
+        fixed={project.image.sharp.fixed}
+        alt={project.title}
         css={css`
-          margin: 1rem 1rem 0 0;
-          width: 100px;
+          border: 1px solid black;
+          margin-right: 1em;
         `}
-      >
-        <Image
-          fluid={project.image.sharp.fluid}
-          css={css`
-            margin-top: 0;
-          `}
-          alt={project.title}
-        ></Image>
-      </Link>
+        imgStyle={{ objectFit: "contain" }}
+        style={{ width: "200px" }}
+      ></Image>
       <div>
-        <h3>{project.title}</h3>
+        <div
+          css={css`
+            display: flex;
+            justify-content: space-between;
+          `}
+        >
+          <h3>{project.title}</h3>
+          <div
+            css={css`
+              display: flex;
+            `}
+          >
+            <Tags tags={project.tags} />
+          </div>
+        </div>
         <p>{project.excerpt}</p>
       </div>
     </article>
