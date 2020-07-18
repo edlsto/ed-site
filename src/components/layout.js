@@ -3,6 +3,7 @@ import Helmet from "react-helmet"
 import useSiteMetadata from "../hooks/use-sitemetadata"
 import Header from "./header"
 import { Global, css } from "@emotion/core"
+import favicon from "../images/peace.png"
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata()
@@ -73,6 +74,7 @@ const Layout = ({ children }) => {
       <Helmet lang="en">
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link rel="icon" href={favicon} />
       </Helmet>
       <Header siteTitle={title} />
       <main
