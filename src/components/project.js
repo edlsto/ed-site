@@ -12,7 +12,7 @@ const Project = ({ project }) => {
       css={css`
         display: flex;
         margin-top: 0;
-        padding-bottom: 1rem;
+        margin-bottom: 2rem;
 
         :first-of-type {
           margin-top: 1rem;
@@ -34,12 +34,15 @@ const Project = ({ project }) => {
           css={css`
             display: flex;
             justify-content: space-between;
+            margin-bottom: 1em;
           `}
         >
           <h3>{project.title}</h3>
           <div
             css={css`
               display: flex;
+              align-items: flex-start;
+              margin-top: 0;
             `}
           >
             <Tags tags={project.tags} />
