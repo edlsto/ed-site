@@ -8,10 +8,11 @@ const useProjects = () => {
           frontmatter {
             title
             slug
+            tags
             image {
               sharp: childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(height: 100) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
@@ -26,6 +27,7 @@ const useProjects = () => {
     slug: project.frontmatter.slug,
     image: project.frontmatter.image,
     excerpt: project.excerpt,
+    tags: project.frontmatter.tags,
   }))
 }
 
