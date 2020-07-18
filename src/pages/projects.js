@@ -11,7 +11,6 @@ const Projects = () => {
   return (
     <Layout>
       <h1>My projects</h1>
-      <p>Here are my projects</p>
       {projects.map(project => (
         <Project key={project.slug} project={project} />
       ))}
