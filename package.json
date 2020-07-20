@@ -16,6 +16,7 @@
     "gatsby-plugin-mdx": "^1.2.27",
     "gatsby-plugin-offline": "^3.2.13",
     "gatsby-plugin-react-helmet": "^3.3.6",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-remark-images": "^3.3.19",
     "gatsby-source-filesystem": "^2.3.14",
