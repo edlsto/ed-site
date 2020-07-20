@@ -61,6 +61,15 @@ const Layout = ({ children }) => {
               color: red;
             }
 
+            pre > code {
+              color: black;
+            }
+
+            pre {
+              background-color: lightgray;
+              padding: 2em;
+            }
+
             p {
               margin-bottom: 1rem;
             }
