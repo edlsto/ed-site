@@ -10,7 +10,10 @@ import Mountains from "../../assets/mtns.svg"
 import Cloud from "../components/cloud"
 import Sun from "../components/sun"
 import Star from "../components/star"
+import Moon from "../components/moon"
 import gsap, { CSSPlugin } from "gsap"
+import { MotionPathPlugin } from "gsap/MotionPathPlugin"
+
 import { nominalTypeHack } from "prop-types"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -19,7 +22,9 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger)
 }
 
-const plugins = [CSSPlugin]
+gsap.registerPlugin(MotionPathPlugin)
+
+const plugins = [CSSPlugin, MotionPathPlugin]
 
 const PHero = props => (
   <p
@@ -53,44 +58,44 @@ const H3Hero = props => (
   />
 )
 
-const opacity = keyframes`
-  from {
-        transform: translateX(-50px);
+// const opacity = keyframes`
+//   from {
+//         transform: translateX(-50px);
 
-    opacity: 0;
-    color: lightgray;
-  }
+//     opacity: 0;
+//     color: lightgray;
+//   }
 
-  20% {
-    transform: translateX(-10px);
-  }
+//   20% {
+//     transform: translateX(-10px);
+//   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// `
 
-const animationSmallText = keyframes`
-from {
-  opacity: 0
-}
-  50% {
-        transform: translateX(-50px);
+// const animationSmallText = keyframes`
+// from {
+//   opacity: 0
+// }
+//   50% {
+//         transform: translateX(-50px);
 
-    opacity: 0;
-    color: lightgray;
-  }
+//     opacity: 0;
+//     color: lightgray;
+//   }
 
-  80% {
-    transform: translateX(-10px);
-  }
+//   80% {
+//     transform: translateX(-10px);
+//   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// `
 
 class IndexPage extends Component {
   constructor(props) {
@@ -101,6 +106,7 @@ class IndexPage extends Component {
     this.star = null
     this.star1 = null
     this.star2 = null
+    this.moon = null
     this.state = {
       opacity: 0,
     }
@@ -108,8 +114,19 @@ class IndexPage extends Component {
     // reference to the animation
   }
 
-  logAmount = amount => {
+  darkenBackground = amount => {
     this.setState({ opacity: amount.progress * 0.3 })
+  }
+
+  lightenBackground = amount => {
+    console.log(amount.progress)
+    let opacity
+    if (amount.progress > 0.5) {
+      opacity = 0
+    } else {
+      opacity = ((1 - amount.progress) * 0.3 - 0.15) * 1.67
+    }
+    this.setState({ opacity: opacity })
   }
 
   componentDidMount() {
@@ -124,13 +141,44 @@ class IndexPage extends Component {
       trigger: ".scene",
       start: "top 100px",
       end: "bottom 550px",
-      onUpdate: self => this.logAmount(self),
+      onUpdate: self => this.darkenBackground(self),
     })
-    let tl = gsap.timeline({ delay: 0.5 })
-    tl.from(this.sun, 1, {
-      y: 300,
-      ease: "back.out(1.7)",
+    ScrollTrigger.create({
+      trigger: ".scene-three",
+      start: "top 800px",
+      end: "bottom 550px",
+      onUpdate: self => this.lightenBackground(self),
     })
+
+    let tl = gsap.timeline({})
+    tl.from(".hero-title", 1, {
+      x: -20,
+      opacity: 0,
+      ease: "power3.inOut",
+    })
+    tl.from(
+      ".hero-subtitle",
+      1,
+      {
+        x: -20,
+        opacity: 0,
+        ease: "power3.inOut",
+      },
+      "-=.75"
+    )
+    tl.fromTo(
+      this.sun,
+      1,
+      {
+        y: 300,
+        ease: "back.out(1.7)",
+      },
+      {
+        y: 0,
+        ease: "back.out(1.7)",
+      },
+      "-=.5"
+    )
     tl.to(
       this.sun,
       15,
@@ -141,6 +189,7 @@ class IndexPage extends Component {
       },
       "-=2"
     )
+
     let tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-two",
@@ -154,7 +203,35 @@ class IndexPage extends Component {
     })
     tl2.from(this.star1, 1, { y: "950px", ease: "back.out(1.7)" }, "-=.9")
     tl2.from(this.star2, 1, { y: "900px", ease: "back.out(1.7)" }, "-=.8")
+    tl2.fromTo(
+      this.moon,
+      1,
+      {
+        x: -800,
+        y: 1400,
+      },
+      {
+        motionPath: {
+          path: [
+            { x: -800, y: 1400 },
+            { x: -500, y: 700 },
+            { x: 0, y: 0 },
+          ],
+        },
+      },
+      "-=1.5"
+    )
+    let tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".scene-two",
+        start: "top 400px",
+        end: "bottom 100px",
+        toggleActions: "play pause resume reset",
+      },
+    })
 
+    tl3.from(".hero-two-title", 1, { x: "-20px", opacity: 0 }, "-=1.5")
+    tl3.from(".hero-two-subtitle", 1, { x: "-20px", opacity: 0 }, "-=1")
     // tl.from(
     //   this.cloud,
     //   18,
@@ -191,10 +268,10 @@ class IndexPage extends Component {
           {/* <Cloud ref={div => (this.cloud = div)} /> */}
 
           <H1Hero
-            className="hero"
-            css={css`
-              animation: ${opacity} 1s ease-in-out 1;
-            `}
+            className="hero-title"
+            // css={css`
+            //   animation: ${opacity} 1s ease-in-out 1;
+            // `}
           >
             Hi! I'm Ed.
           </H1Hero>
@@ -208,16 +285,14 @@ class IndexPage extends Component {
             <div
               className="text-container"
               css={css`
-            margin-right: 3em;
-            /* animation: ${animationSmallText} 2s ease-in-out 1; */
-          `}
+                margin-right: 3em;
+              `}
             >
               <H3Hero
-                className="hero"
+                className="hero-subtitle"
                 css={css`
-              /* animation: ${opacity} 1s ease-in-out 1; */
-              width: 15em;
-            `}
+                  width: 15em;
+                `}
               >
                 I'm a developer. Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit, sed do eiusmod tempor
@@ -239,10 +314,12 @@ class IndexPage extends Component {
           css={css`
             height: 800px;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
+            /* justify-content: center; */
             padding-top: 100px;
+            flex-wrap: wrap;
             /* background: red; */
-            align-items: center;
+            align-items: flex-start;
           `}
         >
           <div
@@ -253,21 +330,44 @@ class IndexPage extends Component {
           >
             <Star
               ref={div => (this.star = div)}
-              marginLeft="90%"
-              marginTop="40px"
+              marginLeft="66%"
+              marginTop="90px"
             />
             <Star
               ref={div => (this.star1 = div)}
-              marginLeft="92%"
-              marginTop="0px"
+              marginLeft="85%"
+              marginTop="50px"
             />
             <Star
               ref={div => (this.star2 = div)}
-              marginLeft="85%"
-              marginTop="30px"
+              marginLeft="81%"
+              marginTop="110px"
             />
+            <Moon ref={div => (this.moon = div)} />
           </div>
-          <H1Hero>2</H1Hero>
+          <div
+            css={css`
+              align-self: center;
+              text-align: right;
+            `}
+          >
+            <H1Hero
+              css={css`
+                color: white;
+              `}
+              className="hero-two-title"
+            >
+              I ❤️ front-end technology
+            </H1Hero>
+            <H3Hero
+              className="hero-two-subtitle"
+              css={css`
+                color: white;
+              `}
+            >
+              I have experience in React and React Native
+            </H3Hero>
+          </div>
         </div>
         <div
           className="scene-three"
