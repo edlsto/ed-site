@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import { css, jsx, keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
@@ -7,7 +7,18 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Mountains from "../../assets/mtns.svg"
-import Sun from "../../assets/sun.svg"
+import Cloud from "../components/cloud"
+import Sun from "../components/sun"
+import gsap, { CSSPlugin } from "gsap"
+import { nominalTypeHack } from "prop-types"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+if (typeof window !== `undefined`) {
+  gsap.registerPlugin(ScrollTrigger)
+  gsap.core.globals("ScrollTrigger", ScrollTrigger)
+}
+
+const plugins = [CSSPlugin]
 
 const PHero = props => (
   <p
@@ -93,77 +104,141 @@ const sunSpin = keyframes`
 
   to {
     transform: rotate(180deg)
-  }
+  } 
+
+
 `
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="Home" />
-    <div>
-      <Sun
-        css={css`
-          width: 8%;
-          left: 50%;
-          margin-top: 0em;
-          position: absolute;
-          animation: ${sunrise} 1s ease-in-out 1;
-        `}
-      />
-      <Mountains
-        css={css`
-          position: absolute;
-          width: 100%;
-          margin-left: 4em;
-          margin-top: 8em;
-          max-width: 955px;
-        `}
-      />
-    </div>
+class IndexPage extends Component {
+  constructor(props) {
+    super(props)
+    // reference to the DOM node
+    this.sun = null
+    this.cloud = null
+    this.state = {
+      opacity: 0,
+    }
 
-    <H1Hero
-      className="hero"
-      css={css`
-        animation: ${opacity} 1s ease-in-out 1;
-      `}
-    >
-      Hi! I'm Ed.
-    </H1Hero>
+    // reference to the animation
+  }
 
-    <div
-      className="text-image-container"
-      css={css`
-        display: flex;
-      `}
-    >
-      <div
-        className="text-container"
-        css={css`
-          margin-right: 3em;
-          /* animation: ${animationSmallText} 2s ease-in-out 1; */
-        `}
-      >
-        <H3Hero
-          className="hero"
+  logAmount = amount => {
+    this.setState({ opacity: amount.progress * 0.2 })
+  }
+
+  componentDidMount() {
+    // use the node ref to create the animation
+    ScrollTrigger.create({
+      trigger: ".scene",
+      start: "top 150px",
+      end: "bottom 350px",
+      pin: this.sun,
+      onUpdate: self => this.logAmount(self),
+    })
+    let tl = gsap.timeline()
+    tl.from(this.sun, 2, {
+      y: 300,
+      ease: "power3.inOut",
+    })
+    tl.to(
+      this.sun,
+      15,
+      {
+        rotation: 180,
+        repeat: -1,
+        ease: "none",
+      },
+      "-=2"
+    )
+    // tl.from(
+    //   this.cloud,
+    //   18,
+    //   {
+    //     x: -1700,
+    //     ease: "none",
+    //     repeat: -1,
+    //   },
+    //   "-=2"
+    // )
+  }
+  render() {
+    return (
+      <Layout bg={`rgba(0, 0, 0, ${this.state.opacity})`}>
+        <SEO title="Home" />
+
+        <div
+          className="scene"
           css={css`
-            /* animation: ${opacity} 1s ease-in-out 1; */
-            width: 15em;
+            height: 700px;
           `}
         >
-          I'm a developer. Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor
-        </H3Hero>
-      </div>
-      <div>
-        {/* <Img
-          css={css`
-            border-radius: 1em;
+          <Sun ref={div => (this.sun = div)} className="sun" />
+          <Mountains
+            css={css`
+              position: absolute;
+              width: 100%;
+              margin-left: 4em;
+              margin-top: 8em;
+              max-width: 955px;
+            `}
+          />
+          {/* <Cloud ref={div => (this.cloud = div)} /> */}
+
+          <H1Hero
+            className="hero"
+            css={css`
+              animation: ${opacity} 1s ease-in-out 1;
+            `}
+          >
+            Hi! I'm Ed.
+          </H1Hero>
+
+          <div
+            className="text-image-container"
+            css={css`
+              display: flex;
+            `}
+          >
+            <div
+              className="text-container"
+              css={css`
+            margin-right: 3em;
+            /* animation: ${animationSmallText} 2s ease-in-out 1; */
           `}
-          fixed={data.file.childImageSharp.fixed}
-        /> */}
-      </div>
-    </div>
-  </Layout>
-)
+            >
+              <H3Hero
+                className="hero"
+                css={css`
+              /* animation: ${opacity} 1s ease-in-out 1; */
+              width: 15em;
+            `}
+              >
+                I'm a developer. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor
+              </H3Hero>
+            </div>
+            <div>
+              {/* <Img
+            css={css`
+              border-radius: 1em;
+            `}
+            fixed={data.file.childImageSharp.fixed}
+          /> */}
+            </div>
+          </div>
+        </div>
+        <div className="scene-two" css={css``}>
+          <div
+            className="space"
+            css={css`
+              height: 800px;
+            `}
+          ></div>
+        </div>
+      </Layout>
+    )
+  }
+}
 
 export const query = graphql`
   query {
