@@ -239,27 +239,35 @@ class IndexPage extends Component {
           css={css`
             height: 800px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             padding-top: 100px;
             /* background: red; */
-            /* align-items: center; */
+            align-items: center;
           `}
         >
-          <Star
-            ref={div => (this.star = div)}
-            marginLeft="90%"
-            marginTop="40px"
-          />
-          <Star
-            ref={div => (this.star1 = div)}
-            marginLeft="92%"
-            marginTop="0px"
-          />
-          <Star
-            ref={div => (this.star2 = div)}
-            marginLeft="85%"
-            marginTop="30px"
-          />
+          <div
+            className="illustration-two"
+            css={css`
+              align-self: flex-start;
+            `}
+          >
+            <Star
+              ref={div => (this.star = div)}
+              marginLeft="90%"
+              marginTop="40px"
+            />
+            <Star
+              ref={div => (this.star1 = div)}
+              marginLeft="92%"
+              marginTop="0px"
+            />
+            <Star
+              ref={div => (this.star2 = div)}
+              marginLeft="85%"
+              marginTop="30px"
+            />
+          </div>
+          <H1Hero>2</H1Hero>
         </div>
         <div
           className="scene-three"
