@@ -9,6 +9,7 @@ import SEO from "../components/seo"
 import Mountains from "../../assets/mtns.svg"
 import Cloud from "../components/cloud"
 import Sun from "../components/sun"
+import Star from "../components/star"
 import gsap, { CSSPlugin } from "gsap"
 import { nominalTypeHack } from "prop-types"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -91,30 +92,15 @@ from {
   }
 `
 
-const sunrise = keyframes`
-from {
-  transform: translateY(400px)
-}
-  to {
-    transform: translateY(0px)
-  }
-`
-
-const sunSpin = keyframes`
-
-  to {
-    transform: rotate(180deg)
-  } 
-
-
-`
-
 class IndexPage extends Component {
   constructor(props) {
     super(props)
     // reference to the DOM node
     this.sun = null
     this.cloud = null
+    this.star = null
+    this.star1 = null
+    this.star2 = null
     this.state = {
       opacity: 0,
     }
@@ -123,7 +109,7 @@ class IndexPage extends Component {
   }
 
   logAmount = amount => {
-    this.setState({ opacity: amount.progress * 0.2 })
+    this.setState({ opacity: amount.progress * 0.3 })
   }
 
   componentDidMount() {
@@ -131,14 +117,19 @@ class IndexPage extends Component {
     ScrollTrigger.create({
       trigger: ".scene",
       start: "top 150px",
-      end: "bottom 350px",
+      end: "bottom 550px",
       pin: this.sun,
+    })
+    ScrollTrigger.create({
+      trigger: ".scene",
+      start: "top 100px",
+      end: "bottom 550px",
       onUpdate: self => this.logAmount(self),
     })
-    let tl = gsap.timeline()
-    tl.from(this.sun, 2, {
+    let tl = gsap.timeline({ delay: 0.5 })
+    tl.from(this.sun, 1, {
       y: 300,
-      ease: "power3.inOut",
+      ease: "back.out(1.7)",
     })
     tl.to(
       this.sun,
@@ -150,6 +141,20 @@ class IndexPage extends Component {
       },
       "-=2"
     )
+    let tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".scene-two",
+        start: "top 700px",
+        toggleActions: "play pause resume reset",
+      },
+    })
+    tl2.from([this.star], 1, {
+      y: "1000px",
+      ease: "back.out(1.7)",
+    })
+    tl2.from(this.star1, 1, { y: "950px", ease: "back.out(1.7)" }, "-=.9")
+    tl2.from(this.star2, 1, { y: "900px", ease: "back.out(1.7)" }, "-=.8")
+
     // tl.from(
     //   this.cloud,
     //   18,
@@ -182,6 +187,7 @@ class IndexPage extends Component {
               max-width: 955px;
             `}
           />
+
           {/* <Cloud ref={div => (this.cloud = div)} /> */}
 
           <H1Hero
@@ -227,13 +233,44 @@ class IndexPage extends Component {
             </div>
           </div>
         </div>
-        <div className="scene-two" css={css``}>
-          <div
-            className="space"
-            css={css`
-              height: 800px;
-            `}
-          ></div>
+
+        <div
+          className="scene-two"
+          css={css`
+            height: 800px;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 100px;
+            /* background: red; */
+            /* align-items: center; */
+          `}
+        >
+          <Star
+            ref={div => (this.star = div)}
+            marginLeft="90%"
+            marginTop="40px"
+          />
+          <Star
+            ref={div => (this.star1 = div)}
+            marginLeft="92%"
+            marginTop="0px"
+          />
+          <Star
+            ref={div => (this.star2 = div)}
+            marginLeft="85%"
+            marginTop="30px"
+          />
+        </div>
+        <div
+          className="scene-three"
+          css={css`
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          `}
+        >
+          <H1Hero>3</H1Hero>
         </div>
       </Layout>
     )
