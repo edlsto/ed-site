@@ -18,7 +18,7 @@ const Layout = ({ children, bg }) => {
 
           html,
           body {
-            min-height: 100vh;
+            overflow-x: hidden;
             margin: 0;
             color: #555;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
