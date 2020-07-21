@@ -13,7 +13,7 @@ const Sun = React.forwardRef((props, ref) => (
     viewBox="0 0 48 48.3"
     xmlSpace="preserve"
     css={css`
-      width: 8%;
+      width: 100px;
       left: 52%;
       margin-top: 1em;
       position: absolute;
