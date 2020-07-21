@@ -5,9 +5,8 @@ import Header from "./header"
 import { Global, css } from "@emotion/core"
 import favicon from "../images/peace.png"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, bg }) => {
   const { title, description } = useSiteMetadata()
-
   return (
     <>
       <Global
@@ -19,6 +18,7 @@ const Layout = ({ children }) => {
 
           html,
           body {
+            min-height: 100vh;
             margin: 0;
             color: #555;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
               sans-serif;
             font-size: 18px;
             line-height: 1.4;
-
+            background: ${bg};
             /* remove margin for the main div that Gatsy mounts into */
             > div {
               margin-top: 0;
