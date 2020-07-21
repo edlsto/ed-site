@@ -15,10 +15,10 @@ const Cloud = React.forwardRef((props, ref) => (
     // fill="#FFFFFF"
     css={css`
       width: 32%;
-      left: 52%;
-      margin-top: 13em;
+      left: 0%;
+      margin-top: 44em;
       position: absolute;
-      margin-left: 40em;
+      /* margin-left: 40em; */
     `}
   >
     <g transform="translate(0,-952.36218)">
