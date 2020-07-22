@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react"
+import React from "react"
 import { css } from "@emotion/core"
 
 const Star = React.forwardRef((props, ref) => (
@@ -16,7 +16,7 @@ const Star = React.forwardRef((props, ref) => (
       width: 150px;
       margin-top: 0em;
       position: absolute;
-      left: 12%;
+      left: 32%;
     `}
   >
     <g id="XMLID_1_">
