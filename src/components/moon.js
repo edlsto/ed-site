@@ -16,7 +16,7 @@ const Star = React.forwardRef((props, ref) => (
       width: 150px;
       margin-top: 0em;
       position: absolute;
-      left: 70%;
+      left: 12%;
     `}
   >
     <g id="XMLID_1_">
