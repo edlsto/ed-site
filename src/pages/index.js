@@ -273,7 +273,7 @@ class IndexPage extends Component {
               width: 100%;
               right: 0%;
               margin-left: 4em;
-              margin-top: 8em;
+              margin-top: 10em;
               max-width: 955px;
             `}
           />
@@ -339,23 +339,22 @@ class IndexPage extends Component {
             className="illustration-two"
             css={css`
               align-self: flex-start;
-              justify-content: flex-end;
-              right: 0;
+              /* justify-content: flex-end; */
             `}
           >
             <Star
               ref={div => (this.star = div)}
-              marginLeft="66%"
+              marginLeft="5%"
               marginTop="90px"
             />
             <Star
               ref={div => (this.star1 = div)}
-              marginLeft="85%"
-              marginTop="50px"
+              marginLeft="8%"
+              marginTop="0px"
             />
             <Star
               ref={div => (this.star2 = div)}
-              marginLeft="81%"
+              marginLeft="8%"
               marginTop="110px"
             />
             <Moon ref={div => (this.moon = div)} />
