@@ -1,6 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import { css } from "@emotion/core"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import ReadMore from "../components/read-more"
