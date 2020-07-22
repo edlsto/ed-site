@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react"
+import React from "react"
 import { css } from "@emotion/core"
 
 const Star = React.forwardRef((props, ref) => (
