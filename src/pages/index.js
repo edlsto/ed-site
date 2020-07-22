@@ -14,6 +14,12 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger)
 }
 
+let defaultWidth
+
+if (typeof window !== `undefined`) {
+  defaultWidth = window.innerWidth
+}
+
 gsap.registerPlugin(MotionPathPlugin)
 
 const H1Hero = props => (
@@ -165,8 +171,8 @@ class IndexPage extends Component {
             </H3Hero>
           </div>
           <MtnsSun
-            marginTop={window.innerWidth < 600 ? 0 : "-14em"}
-            width={window.innerWidth < 600 ? "100%" : "80%"}
+            marginTop={defaultWidth < 600 ? 0 : "-14em"}
+            width={defaultWidth < 600 ? "100%" : "80%"}
           />
         </div>
 
