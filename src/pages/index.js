@@ -57,7 +57,7 @@ const Reveal = ({ children }) => {
       },
     })
 
-    tl2.from(revealRef.current, {
+    tl2.from(revealRef.current, 1, {
       y: 500,
     })
   }, [])
@@ -92,19 +92,6 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    // ScrollTrigger.create({
-    //   trigger: ".scene",
-    //   start: "top 100px",
-    //   end: "bottom 550px",
-    //   onUpdate: self => this.darkenBackground(self),
-    // })
-    // ScrollTrigger.create({
-    //   trigger: ".scene-three",
-    //   start: "top 400px",
-    //   end: "bottom 550px",
-    //   onUpdate: self => this.lightenBackground(self),
-    // })
-
     let tl = gsap.timeline({})
     tl.from(".hero-title", 1, {
       x: -20,
@@ -130,24 +117,6 @@ class IndexPage extends Component {
       },
     })
 
-    // tl2.fromTo(
-    //   this.moon,
-    //   1,
-    //   {
-    //     x: -800,
-    //     y: 1400,
-    //   },
-    //   {
-    //     motionPath: {
-    //       path: [
-    //         { x: -800, y: 1400 },
-    //         { x: -500, y: 700 },
-    //         { x: 0, y: 0 },
-    //       ],
-    //     },
-    //   },
-    //   "-=1.5"
-    // )
     let tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-two",
@@ -163,7 +132,7 @@ class IndexPage extends Component {
     let tl4 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-three",
-        start: "top 350px",
+        start: "top 550px",
         end: "bottom 100px",
         toggleActions: "play pause resume reset",
       },
@@ -189,6 +158,9 @@ class IndexPage extends Component {
           <div
             css={css`
               width: 35%;
+              @media (max-width: 500px) {
+                width: 100%;
+              }
             `}
           >
             <H1Hero className="hero-title">Hi! I'm Ed.</H1Hero>
@@ -197,16 +169,22 @@ class IndexPage extends Component {
               React, React Native, GraphQL and Node.
             </H3Hero>
           </div>
-          <MtnsSun />
+          <MtnsSun
+            marginTop={window.innerWidth < 500 ? 0 : "-14em"}
+            width={window.innerWidth < 500 ? "100%" : "80%"}
+          />
         </div>
 
         <div
           className="scene-two"
           css={css`
-            height: 600px;
             display: flex;
             flex-direction: row;
             align-items: center;
+            padding: 5em 0;
+            @media (max-width: 500px) {
+              flex-direction: column-reverse;
+            }
           `}
         >
           <Reveal>
@@ -244,11 +222,10 @@ class IndexPage extends Component {
         <div
           className="scene-three"
           css={css`
-            height: 500px;
+            padding: 5em 0;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            /* background: red; */
             align-items: flex-start;
           `}
         >
