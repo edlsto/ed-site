@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "../components/layout"
-import { Link } from "gatsby"
 import ReadMore from "../components/read-more"
 import useProjects from "../hooks/use-projects"
 import Project from "../components/project"
