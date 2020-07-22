@@ -131,12 +131,12 @@ class IndexPage extends Component {
 
   componentDidMount() {
     // use the node ref to create the animation
-    ScrollTrigger.create({
-      trigger: ".scene",
-      start: "top 150px",
-      end: "bottom 550px",
-      pin: this.sun,
-    })
+    // ScrollTrigger.create({
+    //   trigger: ".scene",
+    //   start: "top 150px",
+    //   end: "bottom 550px",
+    //   pin: this.sun,
+    // })
     ScrollTrigger.create({
       trigger: ".scene",
       start: "top 100px",
