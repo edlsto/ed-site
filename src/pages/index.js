@@ -271,6 +271,7 @@ class IndexPage extends Component {
             css={css`
               position: absolute;
               width: 100%;
+              right: 0%;
               margin-left: 4em;
               margin-top: 8em;
               max-width: 955px;
@@ -339,6 +340,7 @@ class IndexPage extends Component {
             css={css`
               align-self: flex-start;
               justify-content: flex-end;
+              right: 0;
             `}
           >
             <Star
