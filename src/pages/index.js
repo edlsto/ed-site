@@ -145,7 +145,7 @@ class IndexPage extends Component {
     })
     ScrollTrigger.create({
       trigger: ".scene-three",
-      start: "top 800px",
+      start: "top 400px",
       end: "bottom 550px",
       onUpdate: self => this.lightenBackground(self),
     })
@@ -224,7 +224,7 @@ class IndexPage extends Component {
     let tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-two",
-        start: "top 400px",
+        start: "top 300px",
         end: "bottom 100px",
         toggleActions: "play pause resume reset",
       },
@@ -232,6 +232,18 @@ class IndexPage extends Component {
 
     tl3.from(".hero-two-title", 1, { x: "-20px", opacity: 0 }, "-=1.5")
     tl3.from(".hero-two-subtitle", 1, { x: "-20px", opacity: 0 }, "-=1")
+
+    let tl4 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".scene-three",
+        start: "top 550px",
+        end: "bottom 100px",
+        toggleActions: "play pause resume reset",
+      },
+    })
+
+    tl4.from(".hero-three-title", 1, { x: "-20px", opacity: 0.1 }, "-=1.5")
+    tl4.from(".hero-three-subtitle", 1, { x: "-20px", opacity: 0.1 }, "-=1")
     // tl.from(
     //   this.cloud,
     //   18,
@@ -294,8 +306,8 @@ class IndexPage extends Component {
                   width: 15em;
                 `}
               >
-                I'm a developer. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor
+                I'm a software developer living in Denver, Colorado. I work in
+                React, React Native, GraphQL and Node.
               </H3Hero>
             </div>
             <div>
@@ -312,10 +324,10 @@ class IndexPage extends Component {
         <div
           className="scene-two"
           css={css`
-            height: 800px;
+            height: 600px;
             display: flex;
             flex-direction: row;
-            /* justify-content: center; */
+            justify-content: flex-end;
             padding-top: 100px;
             flex-wrap: wrap;
             /* background: red; */
@@ -326,6 +338,7 @@ class IndexPage extends Component {
             className="illustration-two"
             css={css`
               align-self: flex-start;
+              justify-content: flex-end;
             `}
           >
             <Star
@@ -349,6 +362,9 @@ class IndexPage extends Component {
             css={css`
               align-self: center;
               text-align: right;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-end;
             `}
           >
             <H1Hero
@@ -357,28 +373,66 @@ class IndexPage extends Component {
               `}
               className="hero-two-title"
             >
-              I ❤️ front-end technology
+              Dev + content
             </H1Hero>
             <H3Hero
               className="hero-two-subtitle"
               css={css`
                 color: white;
+                width: 70%;
               `}
             >
-              I have experience in React and React Native
+              I'm a former content executive and ski-town newspaper/website
+              editor who transitioned into software development after attending
+              the Turing School of Software and Design. You can see my projects{" "}
+              <a
+                href="/projects"
+                css={css`
+                  color: white;
+                `}
+              >
+                here
+              </a>
+              .
             </H3Hero>
           </div>
         </div>
         <div
           className="scene-three"
           css={css`
-            height: 800px;
+            height: 500px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* background: red; */
+            align-items: flex-start;
           `}
         >
-          <H1Hero>3</H1Hero>
+          {" "}
+          <div
+            css={css`
+              align-self: center;
+            `}
+          >
+            <H1Hero
+              css={css`
+                color: black;
+              `}
+              className="hero-three-title"
+            >
+              Hire me!
+            </H1Hero>
+            <H3Hero
+              className="hero-three-subtitle"
+              css={css`
+                color: black;
+              `}
+            >
+              Check out my <a href="">Github</a>,{" "}
+              <a href="">alumni portfolio</a>, my <a href="">resume</a> and my{" "}
+              <a href="">blog</a>.
+            </H3Hero>
+          </div>
         </div>
       </Layout>
     )
