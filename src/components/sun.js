@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react"
+import React from "react"
 import { css } from "@emotion/core"
 
 const Sun = React.forwardRef((props, ref) => (
@@ -14,9 +14,15 @@ const Sun = React.forwardRef((props, ref) => (
     xmlSpace="preserve"
     css={css`
       width: 100px;
-      left: 52%;
-      margin-top: 1em;
+      left: 60%;
+      top: 12em;
       position: absolute;
+      z-index: -1;
+      @media (max-width: 700px) {
+        width: 50px;
+        top: 16em;
+        left: 65%;
+      }
     `}
   >
     <g>
