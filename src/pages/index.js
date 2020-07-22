@@ -3,11 +3,8 @@ import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Mountains from "../../assets/mtns.svg"
-import Sun from "../components/sun"
-import Star from "../components/star"
 import Moon from "../components/moon"
-import gsap, { CSSPlugin } from "gsap"
+import gsap from "gsap"
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import MtnsSun from "../components/mtns-sun"
@@ -18,8 +15,6 @@ if (typeof window !== `undefined`) {
 }
 
 gsap.registerPlugin(MotionPathPlugin)
-
-// const plugins = [CSSPlugin, MotionPathPlugin]
 
 const H1Hero = props => (
   //eslint-disable-next-line
@@ -158,7 +153,7 @@ class IndexPage extends Component {
           <div
             css={css`
               width: 35%;
-              @media (max-width: 500px) {
+              @media (max-width: 600px) {
                 width: 100%;
               }
             `}
@@ -166,12 +161,12 @@ class IndexPage extends Component {
             <H1Hero className="hero-title">Hi! I'm Ed.</H1Hero>
             <H3Hero className="hero-subtitle">
               I'm a software developer living in Denver, Colorado. I work in
-              React, React Native, GraphQL and Node.
+              React and React Native.
             </H3Hero>
           </div>
           <MtnsSun
-            marginTop={window.innerWidth < 500 ? 0 : "-14em"}
-            width={window.innerWidth < 500 ? "100%" : "80%"}
+            marginTop={window.innerWidth < 600 ? 0 : "-14em"}
+            width={window.innerWidth < 600 ? "100%" : "80%"}
           />
         </div>
 
@@ -181,8 +176,8 @@ class IndexPage extends Component {
             display: flex;
             flex-direction: row;
             align-items: center;
-            padding: 5em 0;
-            @media (max-width: 500px) {
+            padding: 10em 0;
+            @media (max-width: 600px) {
               flex-direction: column-reverse;
             }
           `}
@@ -222,7 +217,7 @@ class IndexPage extends Component {
         <div
           className="scene-three"
           css={css`
-            padding: 5em 0;
+            padding: 10em 0;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
