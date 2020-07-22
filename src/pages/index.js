@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useEffect, useRef } from "react"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
 import Layout from "../components/layout"
@@ -45,14 +45,32 @@ const H3Hero = props => (
   />
 )
 
+const Reveal = ({ children }) => {
+  const revealRef = useRef(null)
+
+  useEffect(() => {
+    let tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".scene-two",
+        start: "top 300px",
+        toggleActions: "play pause resume reset",
+      },
+    })
+
+    tl2.from(revealRef.current, {
+      y: 500,
+    })
+  }, [])
+
+  return <div ref={revealRef}>{children}</div>
+}
+
 class IndexPage extends Component {
   constructor(props) {
     super(props)
     this.sun = null
     this.cloud = null
-    this.star = null
-    this.star1 = null
-    this.star2 = null
+
     this.moon = null
     this.state = {
       opacity: 0,
@@ -74,18 +92,18 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    ScrollTrigger.create({
-      trigger: ".scene",
-      start: "top 100px",
-      end: "bottom 550px",
-      onUpdate: self => this.darkenBackground(self),
-    })
-    ScrollTrigger.create({
-      trigger: ".scene-three",
-      start: "top 400px",
-      end: "bottom 550px",
-      onUpdate: self => this.lightenBackground(self),
-    })
+    // ScrollTrigger.create({
+    //   trigger: ".scene",
+    //   start: "top 100px",
+    //   end: "bottom 550px",
+    //   onUpdate: self => this.darkenBackground(self),
+    // })
+    // ScrollTrigger.create({
+    //   trigger: ".scene-three",
+    //   start: "top 400px",
+    //   end: "bottom 550px",
+    //   onUpdate: self => this.lightenBackground(self),
+    // })
 
     let tl = gsap.timeline({})
     tl.from(".hero-title", 1, {
@@ -111,30 +129,25 @@ class IndexPage extends Component {
         toggleActions: "play pause resume reset",
       },
     })
-    tl2.from([this.star], 1, {
-      y: "1000px",
-      ease: "back.out(1.7)",
-    })
-    tl2.from(this.star1, 1, { y: "950px", ease: "back.out(1.7)" }, "-=.9")
-    tl2.from(this.star2, 1, { y: "900px", ease: "back.out(1.7)" }, "-=.8")
-    tl2.fromTo(
-      this.moon,
-      1,
-      {
-        x: -800,
-        y: 1400,
-      },
-      {
-        motionPath: {
-          path: [
-            { x: -800, y: 1400 },
-            { x: -500, y: 700 },
-            { x: 0, y: 0 },
-          ],
-        },
-      },
-      "-=1.5"
-    )
+
+    // tl2.fromTo(
+    //   this.moon,
+    //   1,
+    //   {
+    //     x: -800,
+    //     y: 1400,
+    //   },
+    //   {
+    //     motionPath: {
+    //       path: [
+    //         { x: -800, y: 1400 },
+    //         { x: -500, y: 700 },
+    //         { x: 0, y: 0 },
+    //       ],
+    //     },
+    //   },
+    //   "-=1.5"
+    // )
     let tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-two",
@@ -144,13 +157,13 @@ class IndexPage extends Component {
       },
     })
 
-    tl3.from(".hero-two-title", 1, { x: "-20px", opacity: 0 }, "-=1.5")
-    tl3.from(".hero-two-subtitle", 1, { x: "-20px", opacity: 0 }, "-=1")
+    tl3.from(".hero-two-title", 1, { x: "-20px", opacity: 0.1 }, "-=1.5")
+    tl3.from(".hero-two-subtitle", 1, { x: "-20px", opacity: 0.1 }, "-=1")
 
     let tl4 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-three",
-        start: "top 550px",
+        start: "top 350px",
         end: "bottom 100px",
         toggleActions: "play pause resume reset",
       },
@@ -193,37 +206,12 @@ class IndexPage extends Component {
             height: 600px;
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
-            padding-top: 100px;
-            flex-wrap: wrap;
-            /* background: red; */
-            align-items: flex-start;
+            align-items: center;
           `}
         >
-          <div
-            className="illustration-two"
-            css={css`
-              align-self: flex-start;
-              /* justify-content: flex-end; */
-            `}
-          >
-            <Star
-              ref={div => (this.star = div)}
-              marginLeft="30%"
-              marginTop="-40px"
-            />
-            <Star
-              ref={div => (this.star1 = div)}
-              marginLeft="45%"
-              marginTop="0"
-            />
-            <Star
-              ref={div => (this.star2 = div)}
-              marginLeft="45%"
-              marginTop="7%"
-            />
+          <Reveal>
             <Moon ref={div => (this.moon = div)} />
-          </div>
+          </Reveal>
           <div
             css={css`
               align-self: center;
@@ -231,23 +219,13 @@ class IndexPage extends Component {
               display: flex;
               flex-wrap: wrap;
               justify-content: flex-end;
+              flex: 0 0 50%;
             `}
           >
-            <H1Hero
-              css={css`
-                color: white;
-              `}
-              className="hero-two-title"
-            >
+            <H1Hero css={css``} className="hero-two-title">
               Dev + content
             </H1Hero>
-            <H3Hero
-              className="hero-two-subtitle"
-              css={css`
-                color: white;
-                width: 70%;
-              `}
-            >
+            <H3Hero className="hero-two-subtitle">
               I'm a former content executive and ski-town newspaper/website
               editor who transitioned into software development after attending
               the Turing School of Software and Design. You can see my projects{" "}
