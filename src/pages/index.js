@@ -45,8 +45,6 @@ const H3Hero = props => (
   />
 )
 
-console.log(window)
-
 class IndexPage extends Component {
   constructor(props) {
     super(props)
