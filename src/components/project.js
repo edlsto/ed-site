@@ -1,7 +1,5 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { Link } from "gatsby"
-import ReadMore from "../components/read-more"
 import Image from "gatsby-image"
 import Tags from "../components/tags"
 
