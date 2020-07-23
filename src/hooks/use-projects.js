@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const useProjects = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(filter: { fileAbsolutePath: { regex: "/ed-site/projects/" } }) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
         nodes {
           frontmatter {
             title
