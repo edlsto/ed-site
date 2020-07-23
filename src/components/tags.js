@@ -36,6 +36,7 @@ const Tags = ({ tags }) => {
             margin-right: 0;
           }
         `}
+        key={tag}
       >
         {tag}
       </div>
