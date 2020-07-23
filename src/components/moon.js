@@ -24,6 +24,7 @@ class Moon extends Component {
       transformOrigin: "50% 50%",
       scale: 0.7,
     })
+
     tl1.to(this.star1, 1.2, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
@@ -31,16 +32,18 @@ class Moon extends Component {
     })
 
     let tl2 = gsap.timeline({
-      delay: 0.1,
+      delay: 0,
       onComplete: function () {
         this.restart()
       },
     })
-    tl2.to(this.star2, 1, {
+
+    tl2.to(this.star2, 0.8, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
       scale: 0.7,
     })
+
     tl2.to(this.star2, 1.5, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
@@ -57,6 +60,11 @@ class Moon extends Component {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
       scale: 0.7,
+    })
+    tl3.to(this.star3, 1, {
+      ease: "power3.inOut",
+      transformOrigin: "50% 50%",
+      rotation: 180,
     })
     tl3.to(this.star3, 1.6, {
       ease: "power3.inOut",
