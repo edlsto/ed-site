@@ -9,7 +9,6 @@ const Projects = () => {
 
   return (
     <Layout>
-      <h1>My projects</h1>
       {projects.map(project => (
         <Project key={project.slug} project={project} />
       ))}
