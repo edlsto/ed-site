@@ -44,12 +44,6 @@ class MtnsSun extends Component {
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 594.05 403.15"
-        css={css`
-          margin-top: ${this.props.marginTop};
-          width: ${this.props.width};
-          right: 0;
-          margin-left: auto;
-        `}
       >
         <g className="sun" ref={g => (this.sun = g)} z-index="-1">
           <path
