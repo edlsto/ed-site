@@ -172,10 +172,20 @@ class IndexPage extends Component {
               React and React Native.
             </H3Hero>
           </div>
-          <MtnsSun
-            marginTop={defaultWidth < 600 ? 0 : "-14em"}
-            width={defaultWidth < 600 ? "100%" : "80%"}
-          />
+          <div
+            className="mtns-sun-container"
+            css={css`
+              margin-top: -14em;
+              width: 80%;
+              margin-left: auto;
+              @media (max-width: 600px) {
+                margin-top: 0;
+                width: 100%;
+              }
+            `}
+          >
+            <MtnsSun />
+          </div>
         </div>
 
         <div
@@ -187,6 +197,7 @@ class IndexPage extends Component {
             padding: 10em 0;
             @media (max-width: 600px) {
               flex-direction: column-reverse;
+              padding: 5em 0;
             }
           `}
         >
@@ -230,6 +241,9 @@ class IndexPage extends Component {
             flex-direction: row;
             flex-wrap: wrap;
             align-items: flex-start;
+            @media (max-width: 600px) {
+              padding: 5em 0;
+            }
           `}
         >
           {" "}
