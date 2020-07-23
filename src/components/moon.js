@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { css } from "@emotion/core"
 import gsap, { CSSPlugin } from "gsap"
-import { render } from "react-dom"
 
 class Moon extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class Moon extends Component {
 
   componentDidMount() {
     let tl1 = gsap.timeline({
-      delay: 0.4,
+      delay: 0,
       onComplete: function () {
         this.restart()
       },
@@ -32,7 +31,7 @@ class Moon extends Component {
     })
 
     let tl2 = gsap.timeline({
-      delay: 0,
+      delay: 0.4,
       onComplete: function () {
         this.restart()
       },
@@ -51,12 +50,13 @@ class Moon extends Component {
     })
 
     let tl3 = gsap.timeline({
-      delay: 0.3,
+      delay: 0,
       onComplete: function () {
         this.restart()
       },
     })
-    tl3.to(this.star3, 1.2, {
+
+    tl3.to(this.star3, 0.5, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
       scale: 0.7,
