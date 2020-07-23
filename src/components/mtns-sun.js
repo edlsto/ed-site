@@ -10,7 +10,6 @@ class MtnsSun extends Component {
   }
 
   componentDidMount() {
-    // use the node ref to create the animation
     let tl = gsap.timeline({})
     tl.fromTo(
       this.sun,
