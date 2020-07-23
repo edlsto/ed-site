@@ -103,7 +103,7 @@ class IndexPage extends Component {
         ease: "power3.inOut",
       },
       {
-        x: -20,
+        x: 0,
         opacity: 1,
         ease: "power3.inOut",
       }
@@ -117,7 +117,7 @@ class IndexPage extends Component {
         ease: "power3.inOut",
       },
       {
-        x: -20,
+        x: 0,
         opacity: 1,
         ease: "power3.inOut",
       },
