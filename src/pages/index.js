@@ -141,8 +141,20 @@ class IndexPage extends Component {
       },
     })
 
-    tl3.from(".hero-two-title", 1, { x: "-20px", opacity: 0.1 }, "-=1.5")
-    tl3.from(".hero-two-subtitle", 1, { x: "-20px", opacity: 0.1 }, "-=1")
+    tl3.fromTo(
+      ".hero-two-title",
+      1,
+      { x: "-20px", opacity: 0.1 },
+      { x: "0px", opacity: 1 },
+      "-=1.5"
+    )
+    tl3.fromTo(
+      ".hero-two-subtitle",
+      1,
+      { x: "-20px", opacity: 0.1 },
+      { x: "0px", opacity: 1 },
+      "-=1"
+    )
 
     let tl4 = gsap.timeline({
       scrollTrigger: {
@@ -237,17 +249,27 @@ class IndexPage extends Component {
               flex: 0 0 50%;
             `}
           >
-            <H1Hero css={css``} className="hero-two-title">
+            <H1Hero
+              css={css`
+                opacity: 0;
+              `}
+              className="hero-two-title"
+            >
               Dev + content
             </H1Hero>
-            <H3Hero className="hero-two-subtitle">
+            <H3Hero
+              className="hero-two-subtitle"
+              css={css`
+                opacity: 0;
+              `}
+            >
               I'm a former content executive and ski-town newspaper/website
               editor who transitioned into software development after attending
               the Turing School of Software and Design. You can see my projects{" "}
               <a
                 href="/projects"
                 css={css`
-                  color: white;
+                  color: black;
                 `}
               >
                 here
@@ -281,7 +303,7 @@ class IndexPage extends Component {
               `}
               className="hero-three-title"
             >
-              More about me ...
+              Here, there & everywhere
             </H1Hero>
             <H3Hero
               className="hero-three-subtitle"
@@ -289,7 +311,9 @@ class IndexPage extends Component {
                 color: black;
               `}
             >
-              Check out my <a href="https://github.com/edlsto">Github</a>, my{" "}
+              I love mountain biking, skiing and learning everything I can about
+              front-end development. Check out my{" "}
+              <a href="https://github.com/edlsto">Github</a>, my{" "}
               <a href="https://alumni.turing.io/alumni/ed-stoner">
                 alumni portfolio
               </a>
