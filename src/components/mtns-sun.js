@@ -16,10 +16,12 @@ class MtnsSun extends Component {
       this.sun,
       1,
       {
+        opacity: 1,
         y: 350,
         // ease: "back.out(1.7)",
       },
       {
+        opacity: 1,
         y: 0,
         ease: "power3.out",
       }
@@ -45,7 +47,14 @@ class MtnsSun extends Component {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 594.05 403.15"
       >
-        <g className="sun" ref={g => (this.sun = g)} z-index="-1">
+        <g
+          className="sun"
+          ref={g => (this.sun = g)}
+          z-index="-1"
+          css={css`
+            opacity: 0;
+          `}
+        >
           <path
             d="M327.75,19.15a14.4,14.4,0,1,0,14.4,14.4A14.47,14.47,0,0,0,327.75,19.15Z"
             transform="translate(-1.9 -9.6)"
