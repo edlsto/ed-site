@@ -12,14 +12,6 @@ const Star = React.forwardRef((props, ref) => (
     y="0px"
     viewBox="0 0 100 100"
     xmlSpace="preserve"
-    fill="#FFFFFF"
-    css={css`
-      width: 40px;
-      left: ${props.marginLeft};
-      margin-top: 13em;
-      position: absolute;
-      margin-top: ${props.marginTop};
-    `}
   >
     <path
       d="M34.9,67.9c-0.3,0-0.6-0.2-0.6-0.5L31,42.1L18,52.8c-0.1,0.1-0.3,0.1-0.4,0.1c-0.2,0-0.3-0.1-0.4-0.2
