@@ -94,17 +94,31 @@ class IndexPage extends Component {
 
   componentDidMount() {
     let tl = gsap.timeline({})
-    tl.from(".hero-title", 1, {
-      x: -20,
-      opacity: 0,
-      ease: "power3.inOut",
-    })
-    tl.from(
+    tl.fromTo(
+      ".hero-title",
+      1,
+      {
+        x: -20,
+        opacity: 0,
+        ease: "power3.inOut",
+      },
+      {
+        x: -20,
+        opacity: 1,
+        ease: "power3.inOut",
+      }
+    )
+    tl.fromTo(
       ".hero-subtitle",
       1,
       {
         x: -20,
         opacity: 0,
+        ease: "power3.inOut",
+      },
+      {
+        x: -20,
+        opacity: 1,
         ease: "power3.inOut",
       },
       "-=.75"
@@ -153,7 +167,6 @@ class IndexPage extends Component {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* align-items: flex-end; */
           `}
         >
           <div
@@ -164,8 +177,20 @@ class IndexPage extends Component {
               }
             `}
           >
-            <H1Hero className="hero-title">Hi! I'm Ed.</H1Hero>
-            <H3Hero className="hero-subtitle">
+            <H1Hero
+              className="hero-title"
+              css={css`
+                opacity: 0;
+              `}
+            >
+              Hi! I'm Ed.
+            </H1Hero>
+            <H3Hero
+              className="hero-subtitle"
+              css={css`
+                opacity: 0;
+              `}
+            >
               I'm a software developer living in Denver, Colorado. I work in
               React and React Native.
             </H3Hero>
