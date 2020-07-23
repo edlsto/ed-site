@@ -14,12 +14,6 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger)
 }
 
-let defaultWidth
-
-if (typeof window !== `undefined`) {
-  defaultWidth = window.innerWidth
-}
-
 gsap.registerPlugin(MotionPathPlugin)
 
 const H1Hero = props => (
