@@ -281,7 +281,7 @@ class IndexPage extends Component {
               `}
               className="hero-three-title"
             >
-              Hire me!
+              More about me ...
             </H1Hero>
             <H3Hero
               className="hero-three-subtitle"
@@ -289,9 +289,11 @@ class IndexPage extends Component {
                 color: black;
               `}
             >
-              Check out my <a href="">Github</a>,{" "}
-              <a href="">alumni portfolio</a>, my <a href="">resume</a> and my{" "}
-              <a href="">blog</a>.
+              Check out my <a href="https://github.com/edlsto">Github</a>, my{" "}
+              <a href="https://alumni.turing.io/alumni/ed-stoner">
+                alumni portfolio
+              </a>
+              , my <a href="/resume">resume</a> and my <a href="/blog">blog</a>.
             </H3Hero>
           </div>
         </div>
