@@ -4,7 +4,8 @@ import { css } from "@emotion/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Moon from "../components/moon"
-import gsap from "gsap"
+import Skier from "../components/skier"
+import gsap, { CSSPlugin } from "gsap"
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import MtnsSun from "../components/mtns-sun"
@@ -14,7 +15,7 @@ if (typeof window !== `undefined`) {
   gsap.core.globals("ScrollTrigger", ScrollTrigger)
 }
 
-gsap.registerPlugin(MotionPathPlugin)
+gsap.registerPlugin(MotionPathPlugin, CSSPlugin)
 
 const H1Hero = props => (
   //eslint-disable-next-line
@@ -65,8 +66,9 @@ class IndexPage extends Component {
     super(props)
     this.sun = null
     this.cloud = null
-
     this.moon = null
+    this.skier = null
+
     this.state = {
       opacity: 0,
     }
