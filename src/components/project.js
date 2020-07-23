@@ -4,13 +4,15 @@ import Image from "gatsby-image"
 import Tags from "../components/tags"
 
 const Project = ({ project }) => {
-  console.log(project)
   return (
     <article
       css={css`
         display: flex;
         margin-top: 0;
         margin-bottom: 2rem;
+        @media (max-width: 600px) {
+          flex-direction: column;
+        }
 
         :first-of-type {
           margin-top: 1rem;
@@ -21,11 +23,11 @@ const Project = ({ project }) => {
         fixed={project.image.sharp.fixed}
         alt={project.title}
         css={css`
-          border: 1px solid black;
+          /* border: 1px solid black; */
           margin-right: 1em;
         `}
         imgStyle={{ objectFit: "contain" }}
-        style={{ width: "200px" }}
+        style={{ width: "375px" }}
       ></Image>
       <div>
         <div
@@ -33,6 +35,9 @@ const Project = ({ project }) => {
             display: flex;
             justify-content: space-between;
             margin-bottom: 1em;
+            @media (max-width: 600px) {
+              flex-direction: column;
+            }
           `}
         >
           <h3>{project.title}</h3>
@@ -41,6 +46,9 @@ const Project = ({ project }) => {
               display: flex;
               align-items: flex-start;
               margin-top: 0;
+              @media (max-width: 600px) {
+                margin-top: 1em;
+              }
             `}
           >
             <Tags tags={project.tags} />
