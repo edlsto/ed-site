@@ -23,7 +23,6 @@ const Project = ({ project }) => {
         fixed={project.image.sharp.fixed}
         alt={project.title}
         css={css`
-          /* border: 1px solid black; */
           margin-right: 1em;
         `}
         imgStyle={{ objectFit: "contain" }}
