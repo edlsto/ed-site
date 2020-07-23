@@ -28,6 +28,13 @@ const Header = ({ siteTitle }) => (
       justify-content: space-between;
       padding: 2rem calc((100vw - 750px - 0.5rem) / 2) 3rem;
       align-items: center;
+      @media (max-width: 850px) {
+        padding-left: 2em;
+      }
+      @media (max-width: 600px) {
+        flex-direction: column;
+        padding: 2rem calc((100vw - 750px - 0.5rem) / 2) 1rem;
+      }
     `}
   >
     <NavLink
@@ -36,6 +43,9 @@ const Header = ({ siteTitle }) => (
         color: royalblue;
         font-weight: bold;
         font-size: 1.5rem;
+        @media (max-width: 600px) {
+          margin-bottom: 0.5em;
+        }
       `}
     >
       {siteTitle}
