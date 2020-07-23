@@ -11,9 +11,57 @@ const colors = [
   "#fa2915",
   "#37b635",
   "#78757a",
+  "darkolivegreen",
+  "sienna",
+  "maroon",
+  "olive",
+  "darkslateblue",
+  "green",
+  "teal",
+  "steelblue",
+  "yellowgreen",
+  "darkblue",
+  "limegreen",
+  "goldenrod",
+  "darkseagreen",
+  "purple",
+  "tan",
+  "red",
+  "darkturquoise",
+  "darkorange",
+  "mediumvioletred",
+  "lime",
+  "mediumspringgreen",
+  "crimson",
+  "sandybrown",
+  "mediumpurple",
 ]
 
-const technologies = ["React Native", "React", "socket.io", "Redux", "Leaflet"]
+const technologies = [
+  "React Native",
+  "React",
+  "socket.io",
+  "Redux",
+  "Leaflet",
+  "JavaScript",
+  "Sass",
+  "jQuery",
+  "HTML/CSS",
+  "D3",
+  "Travis CI",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Vue",
+  "Mocha",
+  "Chai",
+  "Jest",
+  "React Testing Library",
+  "Test-Driven Development",
+  "Git",
+  "Project Development",
+  "AWS",
+]
 
 const Tags = ({ tags }) => {
   return tags.map(tag => {
@@ -28,7 +76,7 @@ const Tags = ({ tags }) => {
         css={css`
           margin-top: 0;
           padding: 0.2em 0.4em;
-          margin-right: 0.2em;
+          margin: 0 0.2em 0.2em 0;
           border-radius: 0.4em;
           color: white;
           background-color: ${color};
