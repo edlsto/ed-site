@@ -143,8 +143,6 @@ class IndexPage extends Component {
     tl4.from(".hero-three-subtitle", 1, { x: "-20px", opacity: 0.1 }, "-=1")
   }
   render() {
-    console.log(defaultWidth)
-    console.log(defaultWidth < 600)
     return (
       <Layout bg={`rgba(0, 0, 0, ${this.state.opacity})`}>
         <SEO title="Home" />
