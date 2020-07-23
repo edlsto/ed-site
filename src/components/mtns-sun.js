@@ -22,8 +22,9 @@ class MtnsSun extends Component {
       },
       {
         opacity: 1,
-        y: 0,
+        y: 20,
         ease: "power3.out",
+        scale: 1.8,
       }
     )
     tl.to(
