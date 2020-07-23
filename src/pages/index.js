@@ -277,14 +277,14 @@ class IndexPage extends Component {
         <div
           className="scene-three"
           css={css`
-            padding: 10em 0;
+            /* padding: 10em 0; */
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             align-items: flex-start;
             margin-bottom: 10em;
             @media (max-width: 600px) {
-              padding: 5em 0;
+              padding: 0 0 5em 0;
             }
           `}
         >
@@ -294,6 +294,18 @@ class IndexPage extends Component {
               align-self: center;
             `}
           >
+            <div
+              css={css`
+                /* position: absolute; */
+                width: 100%;
+                @media (max-width: 600px) {
+                  width: 150%;
+                }
+              `}
+            >
+              <Skier />
+            </div>
+
             <H1Hero
               css={css`
                 color: black;
