@@ -286,6 +286,7 @@ class IndexPage extends Component {
             flex-direction: row;
             flex-wrap: wrap;
             align-items: flex-start;
+            margin-bottom: 10em;
             @media (max-width: 600px) {
               padding: 5em 0;
             }
