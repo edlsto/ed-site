@@ -18,6 +18,7 @@ let defaultWidth
 
 if (typeof window !== `undefined`) {
   defaultWidth = window.innerWidth
+  console.log(defaultWidth)
 }
 
 gsap.registerPlugin(MotionPathPlugin)
