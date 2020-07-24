@@ -1,6 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
-import Image from "gatsby-image"
+import Img from "gatsby-image"
 import Tags from "../components/tags"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -50,6 +50,10 @@ const Project = ({ project }) => {
             display: flex;
             align-items: flex-start;
             margin-top: 0;
+            max-width: 50%;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+
             @media (max-width: 600px) {
               margin-top: 1em;
             }
@@ -68,17 +72,17 @@ const Project = ({ project }) => {
           }
         `}
       >
-        <Image
-          fixed={project.image.sharp.fixed}
-          alt={project.title}
+        <div
           css={css`
             margin: 0 1em 0 0;
+            flex: 0 0 50%;
             @media (max-width: 600px) {
               margin: 1em 0 0 0;
             }
           `}
-          imgStyle={{ objectFit: "contain" }}
-        ></Image>
+        >
+          <Img fluid={project.image.sharp.fluid} alt={project.title}></Img>
+        </div>
         <div
           css={css`
             margin-top: 1em;
@@ -88,9 +92,16 @@ const Project = ({ project }) => {
         </div>
       </div>
       <div
+        className="links-container"
         css={css`
+          margin-top: 1em;
+          display: flex;
+          justify-content: center;
           .link {
-            margin-right: 1em;
+            margin-left: 3em;
+          }
+          .link:first-of-type {
+            margin-left: 0;
           }
         `}
       >
