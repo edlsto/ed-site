@@ -66,6 +66,7 @@ const technologies = [
   "Greensock",
   "SVG",
   "Gatsby",
+  "Expo",
 ]
 
 const Tags = ({ tags }) => {
