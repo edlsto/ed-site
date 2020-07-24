@@ -71,6 +71,19 @@ class Moon extends Component {
       transformOrigin: "50% 50%",
       scale: 1,
     })
+    let tl4 = gsap.timeline({})
+    tl4.fromTo(
+      this.moon,
+      0.5,
+      {
+        ease: "power3.inOut",
+        opacity: 0,
+      },
+      {
+        ease: "power3.inOut",
+        opacity: 1,
+      }
+    )
   }
 
   render() {
@@ -88,7 +101,12 @@ class Moon extends Component {
           width: 100%;
         `}
       >
-        <g>
+        <g
+          ref={g => (this.moon = g)}
+          css={css`
+            opacity: 0;
+          `}
+        >
           <path
             className="cls-1"
             d="M97.63,38.68v.2a4.2,4.2,0,1,1,0-.2Z"
