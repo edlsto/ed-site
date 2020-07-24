@@ -34,6 +34,7 @@ const colors = [
   "crimson",
   "sandybrown",
   "mediumpurple",
+  "pink",
 ]
 
 const technologies = [
