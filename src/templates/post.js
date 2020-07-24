@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import ReadMore from "../components/read-more"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query($slug: String!) {
@@ -17,6 +18,8 @@ export const query = graphql`
 
 const PostTemplate = ({ data: { mdx: post } }) => (
   <Layout>
+    <SEO title={post.frontmatter.title} />
+
     <h1>{post.frontmatter.title}</h1>
 
     <MDXRenderer>{post.body}</MDXRenderer>
