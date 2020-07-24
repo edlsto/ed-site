@@ -3,8 +3,11 @@ const path = require(`path`)
 module.exports = {
   siteMetadata: {
     title: `Ed Stoner`,
-    description: `Front-end developer based in Denver, Colorado`,
+    titleTemplate: "%s - Front-End Developer",
+    description: `Front-end developer based in Denver, Colorado - React, React Native, JavaScript`,
     author: `Ed Stoner`,
+    url: "https://www.edstoner.dev",
+    image: "/images/edstoner.jpg",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
