@@ -157,8 +157,7 @@ const Resume = () => {
         <ul>
           <li>
             Won first place for the Trackbasket app at Demo Comp, which was open
-            to Won first place for the Trackbasket app at Demo Comp, which was
-            open to all upper- level students in the school. Six projects were
+            to all upper- level students in the school. Six projects were
             accepted into the demo comp.
           </li>
         </ul>
