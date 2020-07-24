@@ -69,6 +69,7 @@ const technologies = [
   "Expo",
   "GraphQL",
   "Figma",
+  "Netlify",
 ]
 
 const Tags = ({ tags }) => {
