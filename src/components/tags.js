@@ -67,6 +67,8 @@ const technologies = [
   "SVG",
   "Gatsby",
   "Expo",
+  "GraphQL",
+  "Figma",
 ]
 
 const Tags = ({ tags }) => {
