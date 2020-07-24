@@ -4,7 +4,7 @@ const useProjects = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
-        filter: { fileAbsolutePath: { regex: "/projects/" } }
+        filter: { fileAbsolutePath: { regex: "/ed-site/projects/" } }
         sort: { fields: frontmatter___priority }
       ) {
         nodes {
@@ -18,8 +18,8 @@ const useProjects = () => {
             date
             image {
               sharp: childImageSharp {
-                fixed(height: 100) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
