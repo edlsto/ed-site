@@ -14,6 +14,7 @@ class Moon extends Component {
   componentDidMount() {
     let tl1 = gsap.timeline({
       delay: 0,
+      repeat: 15,
       onComplete: function () {
         this.restart()
       },
@@ -34,12 +35,15 @@ class Moon extends Component {
     })
 
     let tl2 = gsap.timeline({
-      delay: 0,
+      repeat: 15,
+      delay: 0.4,
       onComplete: function () {
         this.restart()
       },
     })
-    tl1.to(this.star2, 0, {})
+    tl2.to(this.star2, 0, {
+      opacity: 1,
+    })
     tl2.to(this.star2, 0.8, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
@@ -54,11 +58,14 @@ class Moon extends Component {
 
     let tl3 = gsap.timeline({
       delay: 0,
+      repeat: 15,
       onComplete: function () {
         this.restart()
       },
     })
-
+    tl3.to(this.star3, 0, {
+      opacity: 1,
+    })
     tl3.to(this.star3, 0.5, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
@@ -162,12 +169,18 @@ class Moon extends Component {
         />
         <path
           ref={path => (this.star2 = path)}
+          css={css`
+            opacity: 0;
+          `}
           className="star2"
           d="M173.64,150.3a.37.37,0,0,1-.4-.33l-2.16-16.59-8.52,7a.43.43,0,0,1-.26.06.35.35,0,0,1-.27-.13.4.4,0,0,1,0-.52l7.08-8.59-16.65-2.1c-.19-.06-.39-.19-.39-.39a.36.36,0,0,1,.33-.39L169,126.11l-7-8.52a.41.41,0,0,1,0-.53.53.53,0,0,1,.26-.13c.07,0,.2,0,.26.07l8.59,7,2.16-16.58a.4.4,0,0,1,.79,0L176.19,124l8.66-7c.06-.07.19-.07.26-.07a.34.34,0,0,1,.26.13.41.41,0,0,1,0,.53l-7,8.52,16.52,2.16a.4.4,0,0,1,0,.79l-16.59,2.23,7.08,8.58a.41.41,0,0,1,0,.53.53.53,0,0,1-.26.13c-.07,0-.2,0-.26-.07l-8.66-7.14L174,149.9A.38.38,0,0,1,173.64,150.3Z"
           transform="translate(-4.51 -4.08)"
         />
         <path
           ref={path => (this.star3 = path)}
+          css={css`
+            opacity: 0;
+          `}
           className="star3"
           d="M26.07,113.08a.37.37,0,0,1-.39-.33L23.52,96.16l-8.52,7a.45.45,0,0,1-.27.06.33.33,0,0,1-.26-.13.4.4,0,0,1,0-.52L21.55,94,4.9,91.9c-.2-.06-.39-.19-.39-.39a.36.36,0,0,1,.33-.39l16.58-2.23-7-8.52a.38.38,0,0,1,0-.53.49.49,0,0,1,.26-.13.38.38,0,0,1,.26.07l8.59,7,2.16-16.58a.4.4,0,0,1,.79,0l2.16,16.58,8.65-7a.38.38,0,0,1,.26-.07.37.37,0,0,1,.27.13.41.41,0,0,1,0,.53l-7,8.52,16.52,2.16a.4.4,0,0,1,0,.79L30.73,94.07l7.08,8.58a.41.41,0,0,1,0,.53.56.56,0,0,1-.27.13.38.38,0,0,1-.26-.07L28.63,96.1l-2.16,16.58A.38.38,0,0,1,26.07,113.08Z"
           transform="translate(-4.51 -4.08)"
