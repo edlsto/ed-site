@@ -56,6 +56,8 @@ const Project = ({ project }) => {
 
             @media (max-width: 600px) {
               margin-top: 1em;
+              max-width: 100%;
+              justify-content: flex-start;
             }
           `}
         >
