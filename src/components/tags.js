@@ -25,7 +25,6 @@ const colors = [
   "goldenrod",
   "darkseagreen",
   "purple",
-  "tan",
   "red",
   "darkturquoise",
   "darkorange",
@@ -61,6 +60,12 @@ const technologies = [
   "Git",
   "Project Development",
   "AWS",
+  "React Native Testing Library",
+  "React Router",
+  "External APIs",
+  "Greensock",
+  "SVG",
+  "Gatsby",
 ]
 
 const Tags = ({ tags }) => {
