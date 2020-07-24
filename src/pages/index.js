@@ -259,9 +259,8 @@ class IndexPage extends Component {
                 opacity: 0;
               `}
             >
-              I'm a former content executive and ski-town newspaper/website
-              editor who transitioned into software development after attending
-              the Turing School of Software and Design. You can see my projects{" "}
+              I'm passionate about using technology to tell stories, provide
+              value and build audiences. You can see my projects{" "}
               <a
                 href="/projects"
                 css={css`
@@ -298,9 +297,6 @@ class IndexPage extends Component {
               css={css`
                 /* position: absolute; */
                 width: 100%;
-                @media (max-width: 600px) {
-                  width: 150%;
-                }
               `}
             >
               <Skier />
@@ -314,15 +310,9 @@ class IndexPage extends Component {
             >
               Here, there & everywhere
             </H1Hero>
-            <H3Hero
-              className="hero-three-subtitle"
-              css={css`
-                color: black;
-              `}
-            >
-              I love mountain biking, skiing and learning everything I can about
-              front-end development. Check out my{" "}
-              <a href="https://github.com/edlsto">Github</a>, my{" "}
+            <H3Hero className="hero-three-subtitle">
+              I love mountain biking, skiing and learning new technologies.
+              Check out my <a href="https://github.com/edlsto">Github</a>, my{" "}
               <a href="https://alumni.turing.io/alumni/ed-stoner">
                 alumni portfolio
               </a>
