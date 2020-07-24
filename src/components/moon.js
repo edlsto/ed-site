@@ -18,6 +18,9 @@ class Moon extends Component {
         this.restart()
       },
     })
+    tl1.to(this.star1, 0, {
+      opacity: 1,
+    })
     tl1.to(this.star1, 0.8, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
@@ -31,12 +34,12 @@ class Moon extends Component {
     })
 
     let tl2 = gsap.timeline({
-      delay: 0.4,
+      delay: 0,
       onComplete: function () {
         this.restart()
       },
     })
-
+    tl1.to(this.star2, 0, {})
     tl2.to(this.star2, 0.8, {
       ease: "power3.inOut",
       transformOrigin: "50% 50%",
@@ -150,6 +153,9 @@ class Moon extends Component {
         </g>
         <path
           ref={path => (this.star1 = path)}
+          css={css`
+            opacity: 0;
+          `}
           className="star1"
           d="M201,47.28a.37.37,0,0,1-.39-.33l-2.17-16.59-8.52,7a.4.4,0,0,1-.26.06.32.32,0,0,1-.26-.13.4.4,0,0,1,0-.52l7.08-8.59-16.65-2.1c-.2-.06-.4-.19-.4-.39a.37.37,0,0,1,.33-.39l16.59-2.23-7-8.52a.41.41,0,0,1,0-.53.58.58,0,0,1,.26-.13.39.39,0,0,1,.27.07l8.58,7,2.17-16.58a.4.4,0,0,1,.78,0L203.6,21l8.65-7a.38.38,0,0,1,.26-.07.34.34,0,0,1,.26.13.41.41,0,0,1,0,.53l-7,8.52,16.52,2.16a.4.4,0,0,1,0,.79l-16.59,2.23,7.08,8.58a.41.41,0,0,1,0,.53.49.49,0,0,1-.26.13.38.38,0,0,1-.26-.07L203.6,30.3l-2.17,16.58A.38.38,0,0,1,201,47.28Z"
           transform="translate(-4.51 -4.08)"
