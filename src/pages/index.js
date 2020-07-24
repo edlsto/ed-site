@@ -167,7 +167,7 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout bg={`rgba(0, 0, 0, ${this.state.opacity})`}>
-        <SEO title="Home" />
+        <SEO title="Ed Stoner - Front-End Developer" />
 
         <div
           className="scene"
