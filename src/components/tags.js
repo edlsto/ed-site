@@ -35,6 +35,7 @@ const colors = [
   "sandybrown",
   "mediumpurple",
   "pink",
+  "blue",
 ]
 
 const technologies = [
@@ -71,6 +72,7 @@ const technologies = [
   "GraphQL",
   "Figma",
   "Netlify",
+  "React Navigation",
 ]
 
 const Tags = ({ tags }) => {
