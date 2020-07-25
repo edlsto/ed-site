@@ -105,9 +105,9 @@ const Resume = () => {
         <h5>Denver, CO, Oct. 2019 to June 2020</h5>
         <ul>
           <li>
-            Completed 14 projects in solo, pair and group settings, with
-            projects ranging from vanilla JavaScript to full-stack React/Rails
-            applications.
+            Completed <a href="/projects">14 projects</a> in solo, pair and
+            group settings, with projects ranging from vanilla JavaScript to
+            full-stack React/Rails applications.
           </li>{" "}
           <li>
             Gained 1,500 hours of fast-paced hands-on experience in software
