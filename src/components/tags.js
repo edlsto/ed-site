@@ -37,7 +37,6 @@ const colors = [
   "mediumvioletred",
   "mediumblue",
   "lawngreen",
-  "burlywood",
   "turquoise",
   "lime",
   "darkviolet",
