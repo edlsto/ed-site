@@ -22,7 +22,6 @@ const colors = [
   "indigo",
   "limegreen",
   "goldenrod",
-  "purple2",
   "darkseagreen",
   "maroon3",
   "tan",
@@ -104,7 +103,6 @@ const technologies = [
   "Jest",
   "React Testing Library",
   "Test-Driven Development",
-  "Git",
   "Project Development",
   "AWS",
   "React Native Testing Library",
@@ -120,6 +118,7 @@ const technologies = [
   "React Navigation",
   "Emotion",
   "Vue Router",
+  "Git",
 ]
 
 const Tags = ({ tags }) => {
@@ -128,7 +127,7 @@ const Tags = ({ tags }) => {
     if (technologies.indexOf(tag) !== -1) {
       color = colors[technologies.indexOf(tag)]
     } else {
-      color = colors[8]
+      color = colors[0]
     }
     return (
       <div
