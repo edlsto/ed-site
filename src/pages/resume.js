@@ -104,7 +104,7 @@ const Resume = () => {
         </p>
         <H2Resume>Professional Experience</H2Resume>{" "}
         <h3 className="header">
-          <a href="http://turing.io">Ethopass</a>
+          <a href="http://www.ethopass.com">Ethopass</a>
         </h3>
         <h4 className="header">Software Engineer</h4>{" "}
         <h5>Boulder, CO, Aug. 2020 to present</h5>
