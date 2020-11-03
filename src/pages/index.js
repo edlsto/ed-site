@@ -199,8 +199,8 @@ class IndexPage extends Component {
                 opacity: 0;
               `}
             >
-              I'm a software developer living in Denver, Colorado. I work in
-              React and React Native.
+              I'm a software developer living in Denver, Colorado. I work in Vue
+              and TypeScript.
             </H3Hero>
           </div>
           <div

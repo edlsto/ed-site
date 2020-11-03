@@ -45,6 +45,9 @@ const Resume = () => {
         >
           <Tags
             tags={[
+              "Vue",
+              "Vuex",
+              "TypeScript",
               "React",
               "React Native",
               "JavaScript",
@@ -87,6 +90,8 @@ const Resume = () => {
             tags={[
               "Test-Driven Development",
               "Git",
+              "Github",
+              "Gitlab",
               "Project Development",
               "AWS",
             ]}
@@ -98,6 +103,17 @@ const Resume = () => {
           English, Spanish
         </p>
         <H2Resume>Professional Experience</H2Resume>{" "}
+        <h3 className="header">
+          <a href="http://turing.io">Ethopass</a>
+        </h3>
+        <h4 className="header">Software Engineer</h4>{" "}
+        <h5>Boulder, CO, Aug. 2020 to present</h5>
+        <ul>
+          <li>
+            Build out features for SaaS enterprise authentication solution using
+            Vue, Vuex, TypeScript, Sass, Webpack, Jest and Go.
+          </li>
+        </ul>
         <h3 className="header">
           <a href="http://turing.io">Turing School of Software and Design</a>
         </h3>
