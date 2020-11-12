@@ -1,0 +1,78 @@
+---
+title: The other for loops
+slug: the-other-for-loops
+---
+
+When you learn JavaScript, one of the first things you might learn is the `for` loop. It looks something like this:
+
+```javascript
+const colors = ["red", "white", "blue"]
+for (let i = 0; i < colors.length; i++) {
+  console.log(`My favorite color is ${colors[i]}`)
+}
+```
+
+To review, the main parts of the `for` loop are the `initialization`, the `condition` and the `final-expression` are the three expressions that are in the parentheses after the `for`. The expression within the curly braces is known as the `statement`.
+
+- The `initialization` is the expression that runs once before the loop begins. Most of the time, it is used to initialize a counter.
+- The `condition` runs before each loop. It the expression is true, then the loop iteration runs. If it is false, then the loop stops.
+- The `final-expression` runs after each loop iteration. It is often used to increment a counter.
+- The `statement` is the statement that is executed in each loop iteration if the `condition` evaluates to true.
+
+But did you know there are other types of loops that begin with `for`?
+
+There's the `for...in` loop and the `for...of` loop. I'm going to take a closer look at them in this post!
+
+### The `for...of` loop
+
+The `for...of` loop is a really nifty type of loop that iterates over a string or array or any type of iterable object.
+
+```jsx
+const names = ["Jeremy", "Jessica", "Jane"]
+for (const name of names) {
+  console.log(`My friend's name is ${name}`)
+}
+
+// My friend's name is Jeremy
+// My friend's name is Jessica
+// My friend's name is Jane
+```
+
+Here, `name` is just a variable that represents the element of that particular iteration. On the first iteration, `name` will equal `"Jeremy"`. On the next iteration, it will be equal to `"Jessica"`. On the final iteration, it will be equal to `"Jane"`.
+
+You can also use the `for...of` loop to iterate over a string. Check this out:
+
+```jsx
+const myName = "Edward"
+for (const letter of myName) {
+  console.log(letter)
+}
+// "E"
+// "d"
+// "w"
+// "a"
+// "r"
+// "d"
+```
+
+In conclusion, the `for...of` loop pretty similar to a `for` loop, but there's a little less typing. So, if you need to iterate over an entire array or string, try the `for...of` loop.
+
+### The `for...in` loop
+
+Another variation of the `for` loop is the `for...in` loop. This loop allows you to iterate over the properties of an object. Let's take this example:
+
+```jsx
+const user = {
+  name: "George",
+  title: "assistant manager",
+  address: "123 Main St., Anytown, USA",
+}
+
+for (const property in object) {
+  console.log(`The user's ${property} is ${object[property]}.`)
+}
+```
+
+The `for...in` loop is not recommended for iterating over arrays. Why not? Arrays are actually objects with integers for property names, right? Well, you may not get the properties returned to you in the order you expect.
+
+So those are the `for...of` and `for...in` loops. Maybe reach for them instead of the plain ol' `for` loop the next time you need a loop!

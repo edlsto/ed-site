@@ -4,6 +4,8 @@ import useSiteMetadata from "../hooks/use-sitemetadata"
 import Header from "./header"
 import { Global, css } from "@emotion/core"
 import favicon from "../images/peace.png"
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+deckDeckGoHighlightElement()
 
 const Layout = ({ children, bg }) => {
   const { title, description } = useSiteMetadata()
@@ -56,20 +58,6 @@ const Layout = ({ children, bg }) => {
               margin-top: 0.25rem;
             }
 
-            code {
-              background-color: lightgray;
-              color: red;
-            }
-
-            pre > code {
-              color: black;
-            }
-
-            pre {
-              background-color: lightgray;
-              padding: 2em;
-            }
-
             p {
               margin-bottom: 1rem;
             }
@@ -77,6 +65,13 @@ const Layout = ({ children, bg }) => {
             h1 {
               margin-bottom: 2rem;
             }
+
+            .deckgo-highlight-code-carbon {
+              margin-bottom: 1em;
+            }
+
+            --deckgo-highlight-code-font-size: 16px;
+            --deckgo-highlight-code-carbon-toolbar-display: none;
           }
         `}
       />
