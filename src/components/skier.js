@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import gsap, { CSSPlugin } from "gsap"
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
-import { css } from "@emotion/core"
 
 gsap.registerPlugin(MotionPathPlugin, CSSPlugin)
 

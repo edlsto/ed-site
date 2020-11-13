@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { css } from "@emotion/core"
-import gsap, { CSSPlugin } from "gsap"
+import gsap from "gsap"
 
 class Moon extends Component {
   constructor(props) {

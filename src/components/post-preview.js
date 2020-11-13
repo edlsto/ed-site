@@ -13,12 +13,17 @@ const PostPreview = ({ post }) => (
       :first-of-type {
         margin-top: 1rem;
       }
+
+      .date {
+        font-size: 0.7em;
+      }
     `}
   >
     <div>
       <h3>
         <Link to={post.slug}>{post.title}</Link>
       </h3>
+      <p className="date">{post.date}</p>
       <p>{post.excerpt}</p>
       <ReadMore to={post.slug}>read this post &rarr;</ReadMore>
     </div>

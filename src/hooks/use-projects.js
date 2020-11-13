@@ -15,7 +15,7 @@ const useProjects = () => {
             github
             livesite
             demo
-            date
+            date(formatString: "MMMM D, YYYY")
             image {
               sharp: childImageSharp {
                 fluid(maxWidth: 700) {

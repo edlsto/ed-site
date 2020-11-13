@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { css } from "@emotion/core"
 import "./mtns-sun.css"
-import gsap, { CSSPlugin } from "gsap"
+import gsap from "gsap"
 
 class MtnsSun extends Component {
   constructor(props) {

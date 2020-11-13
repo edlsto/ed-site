@@ -10,6 +10,7 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        date(formatString: "MMMM D, YYYY")
       }
       body
     }
@@ -21,6 +22,7 @@ const PostTemplate = ({ data: { mdx: post } }) => (
     <SEO title={post.frontmatter.title} />
 
     <h1>{post.frontmatter.title}</h1>
+    <h3>{post.frontmatter.date}</h3>
 
     <MDXRenderer>{post.body}</MDXRenderer>
     <ReadMore to="/blog">&larr; back to all posts</ReadMore>

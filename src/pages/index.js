@@ -120,14 +120,6 @@ class IndexPage extends Component {
       "-=.75"
     )
 
-    let tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".scene-two",
-        start: "top 700px",
-        toggleActions: "play pause resume reset",
-      },
-    })
-
     let tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".scene-two",

@@ -63,14 +63,18 @@ const Layout = ({ children, bg }) => {
             }
 
             h1 {
-              margin-bottom: 2rem;
+              margin-bottom: 1rem;
+            }
+
+            ul {
+              margin-bottom: 1rem;
             }
 
             .deckgo-highlight-code-carbon {
               margin-bottom: 1em;
             }
 
-            --deckgo-highlight-code-font-size: 16px;
+            --deckgo-highlight-code-font-size: 14px;
             --deckgo-highlight-code-carbon-toolbar-display: none;
           }
         `}
