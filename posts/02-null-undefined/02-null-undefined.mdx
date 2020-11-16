@@ -1,0 +1,75 @@
+---
+title: Null and undefined: What's the difference?
+slug: null-and-undefined-whats-the-difference
+date: 2020-11-16
+---
+
+The two types `null` and `undefined` seem similar. They're both a kind of nothing — falsy values they aren't a number or string.
+
+But what is the difference between these two types of values?
+
+The official spec of JavaScript, called the Ecma Standard, [says this about null](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-null-type):
+
+> The Null type has exactly one value, called null.
+
+OK, so the `Null` type can only have a value of null. But what does that value represent? [MDN says](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null) it represents "the intentional absence of any object value."
+
+APIs can return `null` where an object is expected, but no object meets the criteria provided to the API.
+
+As for `undefined`, [the spec says](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-undefined-type) this:
+
+> The Undefined type has exactly one value, called undefined. Any variable that has not been assigned a value has the value undefined.
+
+So when a variable is declared but not yet assigned a value, it automatically has a value of `undefined`.
+
+Also, when a function does not return a value, it returns `undefined`.
+
+```jsx
+// a variable is declared, but not assigned a value
+var foo
+console.log(foo)
+// undefined
+
+foo === undefined
+// true
+
+!!foo
+// false
+```
+
+```jsx
+// a function does not return a value
+function bar() {
+  1 + 2
+}
+console.log(bar())
+// undefined
+```
+
+`Undefined` and `null` are among JavaScript's seven primitive types. (Remember, a primitive type is a value that is not an object and has no methods. Also, primitive values are immutable.) Those seven types are:
+
+- String
+- Number
+- Bigint
+- Boolean
+- Symbol
+- Undefined
+- Null
+
+But wait! MDN actually says there are six primitives, which excludes `null`. It calls `null` a "special case." The `typeof` operator shows that null is, in fact, an object:
+
+```jsx
+typeof null
+
+// "object"
+```
+
+[This post by Dr. Axel Rauschmayer](https://2ality.com/2013/10/typeof-null.html) shows that this is actually a bug from the first version of JavaScript that has never been fixed.
+
+In that version, types were denoted by a type tag as well as the actual data of the value. `null` was represented by the NULL pointer, which is `0x00`. In that case, `0` is the type tag, which is the type tag of an object.
+
+However, [MDN also notes](https://developer.mozilla.org/en-US/docs/Glossary/Null) that every Object is derived from the `null` value, so it makes sense that `null` is defined as an object.
+
+> Every Object is derived from null value, and therefore typeof operator returns object for it.
+
+To sum it up, `null` is the intentional absence of value. `undefined` is a value for something that does not exist yet or does not exist anymore.
