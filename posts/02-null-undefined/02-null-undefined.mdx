@@ -10,7 +10,7 @@ But what is the difference between these two types of values?
 
 The official spec of JavaScript, called the Ecma Standard, [says this about null](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-null-type):
 
-> The Null type has exactly one value, called null.
+"The Null type has exactly one value, called null."
 
 OK, so the `Null` type can only have a value of null. But what does that value represent? [MDN says](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null) it represents "the intentional absence of any object value."
 
@@ -18,7 +18,7 @@ APIs can return `null` where an object is expected, but no object meets the crit
 
 As for `undefined`, [the spec says](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-ecmascript-language-types-undefined-type) this:
 
-> The Undefined type has exactly one value, called undefined. Any variable that has not been assigned a value has the value undefined.
+"The Undefined type has exactly one value, called undefined. Any variable that has not been assigned a value has the value undefined."
 
 So when a variable is declared but not yet assigned a value, it automatically has a value of `undefined`.
 
@@ -70,6 +70,6 @@ In that version, types were denoted by a type tag as well as the actual data of 
 
 However, [MDN also notes](https://developer.mozilla.org/en-US/docs/Glossary/Null) that every Object is derived from the `null` value, so it makes sense that `null` is defined as an object.
 
-> Every Object is derived from null value, and therefore typeof operator returns object for it.
+"Every Object is derived from null value, and therefore typeof operator returns object for it."
 
 To sum it up, `null` is the intentional absence of value. `undefined` is a value for something that does not exist yet or does not exist anymore.
