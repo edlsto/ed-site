@@ -50,6 +50,7 @@ const Resume = () => {
               "TypeScript",
               "React",
               "React Native",
+              "Redux",
               "JavaScript",
               "Sass",
               "jQuery",
@@ -60,11 +61,12 @@ const Resume = () => {
               "Node.js",
               "Express",
               "MongoDB",
-              "Vue",
               "socket.io",
               "SVG",
               "Greensock",
               "Expo",
+              "PostgreSQL",
+              "Python",
             ]}
           />
         </div>
@@ -76,7 +78,15 @@ const Resume = () => {
             flex-wrap: wrap;
           `}
         >
-          <Tags tags={["Mocha", "Chai", "Jest", "React Testing Library"]} />
+          <Tags
+            tags={[
+              "Mocha",
+              "Chai",
+              "Jest",
+              "React Testing Library",
+              "Selenium",
+            ]}
+          />
         </div>
         <h3 className="header">Systems/Practices</h3>
         <div
