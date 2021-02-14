@@ -29,7 +29,6 @@ const useProjects = () => {
       }
     }
   `)
-  console.log(data)
   return data.allMdx.nodes.map(project => ({
     title: project.frontmatter.title,
     slug: project.frontmatter.slug,
