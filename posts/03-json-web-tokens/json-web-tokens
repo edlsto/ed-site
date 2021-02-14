@@ -1,0 +1,76 @@
+---
+title: "JSON Web Tokens"
+slug: json-web-tokens
+date: 2021-02-14
+---
+
+When you log on to a site with a user name and password, then navigate to another page, you're still logged in. Why? On that second or third or fourth request, how did the website know that it was really you? Why didn't it ask for your user name and password again?
+
+The reason is likely JWT, or JSON Web Tokens. JWT is a way to "represent claims" securely between two parties. A claim is an assertion, and that assertion would be, "I am the person I say I am." 
+
+So how does it work?
+
+When you successfully log in by submitting your user name and password, a JSON Web Token is issued to you. In its serialized form, the JSON Web Token is a string, and it looks something like this:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+```
+
+By the way, what's serialization? It's taking a data structure and translating it into a format that can be stored or transmitted, and then reconstructed later. Common formats of serialization are JSON, YAML and XML.
+
+A JSON Web Token will always start with `eyJ` and contain three sections separated by periods. The three sections represent three distinct parts: the header, the payload and the signature. The JWT always starts with `eyJ` because it is a base64url encoded string, and the string that it's encoding is always JSON that begins with `{"alg":...}`.
+
+OK, what's base64url encoding? Well, base64 takes binary data and encodes it as an ASCII string. Base64URL encoding is a variant of the Base64 algorithm. It uses URL-safe characters — more specifically it uses `-` and `_` instead of `+` and `/`.
+
+Back to these three substrings. Let's break them down.
+
+- **Header**: These includes information about what algorithm is utilized to generate the signature. This is also known as the JOSE header. This info is provided with the `alg` claim, and the algorithm's name.
+
+    The decoded header might look like:
+
+    ```
+    {
+      "alg": "HS256",
+      "typ": "JWT"
+    }
+    ```
+
+- **Payload**: This is where the "claims" are. There are three types of claims: Registered claims, public claims and private claims.
+    - Registered claims: There are seven predefined registered claims in the JSON Web Tokens Claims Registry. They include:
+        - `iss` (issuer) - who issued the JWT?
+        - `exp` (expiration time) - JWTs are given an expiration date to provide security.
+        - `sub` (subject) - who carries the JWT?
+    - Private claims. Not required to be collision resistant.
+    - Public claims: Must be collision resistant
+
+        The decoded payload might look like this:
+
+        ```
+        {
+          "sub": "1234567890",
+          "name": "John Doe",
+          "iat": 1516239022
+        }
+        ```
+
+- **Signature**: This is what is used to validate the token. This may not be there if the token is unsecured (JWT are optionally signed and encrypted). Signing is used to ensure that a JWT has not been tampered with. JWTs are often signed using HMAC, which is a type of tag that uses a cryptographic tag function (often SHA-256) and a secret key. This is the last part of the JWT. It is created by base64url encoding the header and payload, then running it through the HMAC.
+
+JWTs can also be encrypted. When a JWT is encrypted, it has five elements separated by periods instead of three. Remember, if JWTs aren't encrypted, then the payload can be read by third parties. Don't store sensitive data in unencrypted JWTs!
+
+So how do you use JWTs in software applications? A popular way to sign and verify JWTs is with the library jsonwebtoken.
+
+You would sign a JWT like so:
+
+```
+var jwt = require('jsonwebtoken');
+var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
+```
+
+The JWT is then issued to the client. The JWT is stored by the client, and is sent via an HTTP header. The server would verify like this:
+
+```
+var decoded = jwt.verify(token, 'shhhhh');
+console.log(decoded.foo) // bar
+```
+
+So when you're navigating to pages on a website after you've already logged in, you're providing that JWT, which is then being verified on the server. If it's verified, then the server will fulfill your request.
