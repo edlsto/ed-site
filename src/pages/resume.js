@@ -112,6 +112,10 @@ const Resume = () => {
           <a href="http://www.vanderbilt.edu">Vanderbilt University</a>, BA,
           English, Spanish
         </p>
+        <p>
+          <a href="http://turing.edu">Turing School of Software and Design</a>,
+          Front-End Engineering Program
+        </p>
         <H2Resume>Professional Experience</H2Resume>{" "}
         <h3 className="header">
           <a href="http://www.ethopass.com">Ethopass</a>
@@ -120,25 +124,24 @@ const Resume = () => {
         <h5>Boulder, CO, Aug. 2020 to present</h5>
         <ul>
           <li>
-            Build out features for SaaS enterprise authentication solution using
-            Vue, Vuex, TypeScript, Sass, Webpack, Jest and Go.
+            Work in Vue, Vuex, TypeScript, Sass and Jest to build out front end
+            of secure authentication solution at startup.
           </li>
-        </ul>
-        <h3 className="header">
-          <a href="http://turing.io">Turing School of Software and Design</a>
-        </h3>
-        <h4 className="header">Front-End Engineering Program</h4>{" "}
-        <h5>Denver, CO, Oct. 2019 to June 2020</h5>
-        <ul>
           <li>
-            Completed <a href="/projects">14 projects</a> in solo, pair and
-            group settings, with projects ranging from vanilla JavaScript to
-            full-stack React/Rails applications.
-          </li>{" "}
+            Built out the Ethopass admin panel, which allows administrators to
+            provision, delete and modify user credentials within an
+            organization.
+          </li>
           <li>
-            Gained 1,500 hours of fast-paced hands-on experience in software
-            engineering, including languages, frameworks and professional
-            development.
+            Implemented new designs for the product's web extension,
+            incorporating back-end API.
+          </li>
+          <li>
+            Implemented unit tests using Vue Test Utils and Jest. Implemented
+            end-to-end testing using Selenium and Mocha/Chai.
+          </li>
+          <li>
+            Built out documentation site for Ethopass project using Vuepress.
           </li>
         </ul>
         <h3 className="header">
