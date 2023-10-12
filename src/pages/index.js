@@ -305,10 +305,7 @@ class IndexPage extends Component {
             <H3Hero className="hero-three-subtitle">
               I love mountain biking, skiing and learning new technologies.
               Check out my <a href="https://github.com/edlsto">Github</a>, my{" "}
-              <a href="https://alumni.turing.io/alumni/ed-stoner">
-                alumni portfolio
-              </a>
-              , my <a href="/resume">resume</a> and my <a href="/blog">blog</a>.
+              <a href="/resume">resume</a> and my <a href="/blog">blog</a>.
             </H3Hero>
           </div>
         </div>
