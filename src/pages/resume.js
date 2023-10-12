@@ -121,7 +121,7 @@ const Resume = () => {
           <a href="http://www.ethopass.com">Ethopass</a>
         </h3>
         <h4 className="header">Software Engineer</h4>{" "}
-        <h5>Boulder, CO, Aug. 2020 to present</h5>
+        <h5>Boulder, CO, Aug. 2020 to Oct. 2021</h5>
         <ul>
           <li>
             Work in Vue, Vuex, TypeScript, Sass and Jest to build out front end
