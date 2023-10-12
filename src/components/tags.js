@@ -2,133 +2,52 @@ import React from "react"
 import { css } from "@emotion/core"
 
 const colors = [
-  "darkslateblue",
-  "firebrick",
-  "cadetblue",
-  "green",
-  "mediumseagreen",
-  "rosybrown",
-  "rebeccapurple",
-  "teal",
-  "darkgoldenrod",
-  "darkkhaki",
-  "peru",
-  "steelblue",
-  "chocolate",
-  "yellowgreen",
-  "lightseagreen",
-  "indianred",
-  "darkblue",
-  "indigo",
-  "limegreen",
-  "goldenrod",
-  "darkseagreen",
-  "maroon3",
-  "tan",
-  "mediumturquoise",
-  "mediumaquamarine",
-  "darkorchid",
-  "red",
-  "orangered",
-  "darkorange",
-  "orange",
-  "slateblue",
-  "mediumvioletred",
-  "mediumblue",
-  "lawngreen",
-  "turquoise",
-  "lime",
-  "darkviolet",
-  "mediumorchid",
-  "mediumspringgreen",
-  "blueviolet",
-  "springgreen",
-  "royalblue",
-  "darksalmon",
-  "crimson",
-  "aqua",
-  "deepskyblue",
-  "sandybrown",
-  "mediumpurple",
-  "blue",
-  "purple3",
-  "lightcoral",
-  "greenyellow",
-  "tomato",
-  "orchid",
-  "thistle",
-  "lightsteelblue",
-  "coral",
-  "fuchsia",
-  "dodgerblue",
-  "palevioletred",
-  "khaki",
-  "salmon",
-  "palegoldenrod",
-  "laserlemon",
-  "cornflower",
-  "plum",
-  "lightblue",
-  "skyblue",
-  "deeppink",
-  "mediumslateblue",
-  "lightsalmon",
-  "wheat",
-  "paleturquoise",
-  "violet",
-  "palegreen",
-  "lightskyblue",
-  "aquamarine",
-  "hotpink",
-]
+  '#FF5733', // Reddish
+  '#FF6347', // Tomato
+  '#FF4500', // Orange Red
+  '#FFA07A', // Light Salmon
+  '#FFD700', // Gold
+  '#FF8C00', // Dark Orange
+  '#FFA500', // Orange
+  '#FF1493', // Deep Pink
+  '#FF69B4', // Hot Pink
+  '#FFB6C1', // Light Pink
+  '#FFC0CB', // Pink
+  '#FF00FF', // Magenta
+  '#8A2BE2', // Blue Violet
+  '#9400D3', // Dark Violet
+  '#9932CC', // Dark Orchid
+  '#BA55D3', // Medium Orchid
+  '#DA70D6', // Orchid
+  '#FF00FF', // Fuchsia
+  '#9400D3', // Dark Violet
+  '#8A2BE2', // Blue Violet
+  '#483D8B', // Dark Slate Blue
+  '#6A5ACD', // Slate Blue
+  '#7B68EE', // Medium Slate Blue
+  '#4169E1', // Royal Blue
+  '#0000FF', // Blue
+  '#1E90FF', // Dodger Blue
+  '#00BFFF', // Deep Sky Blue
+  '#87CEEB', // Sky Blue
+  '#00CED1', // Dark Turquoise
+  '#20B2AA', // Light Sea Green
+  '#008B8B', // Dark Cyan
+  '#008080', // Teal
+  '#2E8B57', // Sea Green
+  '#3CB371', // Medium Sea Green
+  '#00FF7F', // Spring Green
+  '#ADFF2F', // Green Yellow
+  '#32CD32', // Lime Green
+  '#228B22', // Forest Green
+  '#008000', // Green
+  '#006400'  // Dark Green
+];
 
-const technologies = [
-  "React Native",
-  "React",
-  "socket.io",
-  "Redux",
-  "Leaflet",
-  "JavaScript",
-  "Sass",
-  "jQuery",
-  "HTML/CSS",
-  "D3",
-  "Travis CI",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "Vue",
-  "Mocha",
-  "Chai",
-  "Jest",
-  "React Testing Library",
-  "Test-Driven Development",
-  "Project Development",
-  "AWS",
-  "React Native Testing Library",
-  "React Router",
-  "External APIs",
-  "Greensock",
-  "SVG",
-  "Gatsby",
-  "Expo",
-  "GraphQL",
-  "Figma",
-  "Netlify",
-  "React Navigation",
-  "Emotion",
-  "Vue Router",
-  "Git",
-]
 
 const Tags = ({ tags }) => {
-  return tags.map(tag => {
-    let color
-    if (technologies.indexOf(tag) !== -1) {
-      color = colors[technologies.indexOf(tag)]
-    } else {
-      color = colors[0]
-    }
+  return tags.map((tag, index) => {
+    const color = colors[Math.floor(Math.random() * colors.length)]
     return (
       <div
         css={css`
