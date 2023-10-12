@@ -46,28 +46,27 @@ const Resume = () => {
           <Tags
             tags={[
               "Vue",
+              "Nuxt",
               "Vuex",
+              "C#",
+              ".NET",
               "TypeScript",
               "React",
               "React Native",
               "Redux",
               "JavaScript",
               "Sass",
-              "jQuery",
-              " HTML/CSS",
+              "SQL",
+              "Bootstrap",
+              "HTML/CSS",
               "D3",
-              "Leaflet",
-              "Travis CI",
               "Node.js",
               "Express",
               "MongoDB",
               "socket.io",
-              "SVG",
               "Greensock",
               "Expo",
-              "PostgreSQL",
-              "Python",
-            ]}
+              "PostgreSQL"            ]}
           />
         </div>
         <h3 className="header">Testing</h3>
@@ -117,6 +116,28 @@ const Resume = () => {
           Front-End Engineering Program
         </p>
         <H2Resume>Professional Experience</H2Resume>{" "}
+        <h3 className="header">
+          <a href="http://www.ethopass.com">eGifter</a>
+        </h3>
+        <h4 className="header">Front-End Developer</h4>{" "}
+        <h5>Huntington, NY/Remote, Oct. 2021 to present</h5>
+        <ul>
+          <li>
+            Work in Vue, Sass, TypeScript and Nuxt to build and maintain modern user interfaces for leading platform for eCommerce gifting and for gift card rewards and incentives.
+          </li>
+          <li>
+            Implement new feature requests for internal projects, eGifter-branded marketplaces and client marketplaces.
+          </li>
+          <li>
+            Work on framework improvements in Vue/Nuxt codebase.
+          </li>
+          <li>
+            Fix bugs and work with QA team through testing process.
+          </li>
+          <li>
+            Implemented new features, in Vue front end and C#/.NET back end, in content management system to allow for management of clients and products.
+          </li>
+        </ul>
         <h3 className="header">
           <a href="http://www.ethopass.com">Ethopass</a>
         </h3>
